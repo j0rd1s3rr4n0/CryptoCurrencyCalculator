@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Calcolatore di criptovalute</string>
+    <string name="realtime">Prezzi in tempo reale</string>
+    <string name="clearall">Cancella dati</string>
+    <string name="choosecoin">Scegliere una valuta</string>
+    <string name="apply">APPLICARE</string>
+    <string name="cancel">ANNULLARE</string>
+    <string name="localcoin">EUR</string>
+    <string name="ada">ADA</string>
+    <string name="btc">BTC</string>
+    <string name="ltc">LTC</string>
+    <string name="three">3</string>
+    <string name="one">1</string>
+    <string name="two" >2</string>
+    <string name="four">4</string>
+    <string name="zero" >0</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="nine">9</string>
+    <string name="coma">,</string>
+    <string name="eight">8</string>
+    <string name="seven">7</string>
+    <string name="switch_to_description">Cambio valuta alternativo</string>
+    <string name="error_request">Si è verificato un errore durante il contatto con il server.</string>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="numberButtonTest">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:color">@color/black</item>
+        <item name="android:background">@drawable/boton_semi_redonod</item>
+    </style>
+    <style name="alonetrext">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+</resources>

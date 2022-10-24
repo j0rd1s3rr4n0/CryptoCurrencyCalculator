@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/agrisado">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/separacio_keyboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.58" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/separacio_keyboard_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.68" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/separacio_keyboard_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:textAlignment="center"
+        app:layout_constraintGuide_percent="0.78" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/separacio_keyboard_footer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.88" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/separacio_keyboard_footer2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.98" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.26" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.09" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.18" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/separacio_keyboard_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.36" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/left_border"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.01" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/separacio_keyboard_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.04" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/separacio_keyboard_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.66" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.98" />
+
+    <Button
+        android:id="@+id/btn_three"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:insetLeft="6sp"
+        android:insetTop="6sp"
+        android:insetRight="6sp"
+        android:insetBottom="6dp"
+        android:onClick="addNumber"
+        android:text="@string/three"
+        android:textAlignment="center"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_middle"
+        app:layout_constraintEnd_toStartOf="@+id/guideline17"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_right"
+        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_one"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:insetLeft="6sp"
+        android:insetTop="6sp"
+        android:insetRight="6sp"
+        android:insetBottom="6dp"
+        android:onClick="addNumber"
+        android:text="@string/one"
+        android:textAlignment="center"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_middle"
+        app:layout_constraintEnd_toStartOf="@+id/separacio_keyboard_center"
+        app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_left"
+        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard"
+        tools:ignore="DuplicateClickableBoundsCheck"
+
+        />
+
+    <Button
+        android:id="@+id/btn_two"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:insetLeft="6sp"
+        android:insetTop="6sp"
+        android:insetRight="6sp"
+        android:insetBottom="6dp"
+        android:onClick="addNumber"
+        android:text="@string/two"
+        android:textAlignment="center"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_middle"
+        app:layout_constraintEnd_toStartOf="@+id/separacio_keyboard_right"
+        app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_center"
+        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard" />
+
+    <Button
+        android:id="@+id/btn_four"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:insetLeft="6dp"
+        android:insetTop="6dp"
+        android:insetRight="6dp"
+        android:insetBottom="6dp"
+        android:onClick="addNumber"
+        android:text="@string/four"
+        android:textAlignment="center"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/separacio_keyboard_center"
+        app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_left"
+        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard_middle" />
+
+    <Button
+        android:id="@+id/btn_delete_one"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeTextType="uniform"
+        android:backgroundTint="@color/teal_200"
+        android:gravity="center_horizontal|top|center_vertical|fill_vertical"
+        android:insetLeft="6dp"
+        android:insetTop="6dp"
+        android:insetRight="6dp"
+        android:insetBottom="6dp"
+        android:onClick="delLast"
+        android:pointerIcon="crosshair"
+        android:textAlignment="gravity"
+        android:textSize="96sp"
+        android:textStyle="bold"
+        app:icon="@drawable/ic_baseline_keyboard_backspace_24"
+        app:iconGravity="textEnd"
+        app:iconPadding="0dp"
+        app:iconSize="80dp"
+        app:iconTint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard"
+        app:layout_constraintEnd_toStartOf="@+id/guideline17"
+        app:layout_constraintStart_toEndOf="@+id/btn_clear_all"
+        app:layout_constraintTop_toTopOf="@+id/guideline14"
+        app:layout_constraintVertical_bias="0.368"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/btn_zero"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:insetLeft="6dp"
+        android:insetTop="6dp"
+        android:insetRight="6dp"
+        android:insetBottom="6dp"
+        android:onClick="addNumber"
+        android:text="@string/zero"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_footer2"
+        app:layout_constraintEnd_toStartOf="@+id/separacio_keyboard_right"
+        app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_left"
+        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard_footer"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_clear_all"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeTextType="none"
+        android:backgroundTint="@color/red"
+        android:backgroundTintMode="add"
+        android:drawableTint="#FFFFFF"
+        android:freezesText="false"
+        android:insetLeft="2dp"
+        android:insetTop="6dp"
+        android:insetRight="3sp"
+        android:insetBottom="6dp"
+        android:onClick="cleanAll"
+        android:pointerIcon="zoom_in"
+        android:text="@string/clearall"
+        android:textAlignment="textEnd"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textIsSelectable="false"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:icon="@drawable/ic_baseline_delete_24"
+        app:iconGravity="textStart"
+        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard"
+        app:layout_constraintEnd_toStartOf="@+id/guideline18"
+        app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_left"
+        app:layout_constraintTop_toTopOf="@+id/guideline14"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_five"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:insetLeft="6sp"
+        android:insetTop="6sp"
+        android:insetRight="6dp"
+        android:insetBottom="6dp"
+        android:onClick="addNumber"
+        android:text="@string/five"
+        android:textAlignment="center"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/btn_six"
+        app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_center"
+        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard_middle" />
+
+    <Button
+        android:id="@+id/btn_six"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:insetLeft="6sp"
+        android:insetTop="6sp"
+        android:insetRight="6dp"
+        android:insetBottom="6dp"
+        android:onClick="addNumber"
+        android:text="@string/six"
+        android:textAlignment="center"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/guideline17"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_right"
+        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard_middle"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btn_nine"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:insetLeft="6sp"
+        android:insetTop="6sp"
+        android:insetRight="6sp"
+        android:insetBottom="6dp"
+        android:onClick="addNumber"
+        android:text="@string/nine"
+        android:textAlignment="center"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_footer"
+        app:layout_constraintEnd_toStartOf="@+id/guideline17"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_right"
+        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard_bottom"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_coma"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:insetLeft="6dp"
+        android:insetTop="6dp"
+        android:insetRight="6dp"
+        android:insetBottom="6dp"
+        android:onClick="insertComa"
+        android:text="@string/coma"
+        android:textAlignment="center"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_footer2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline17"
+        app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_right"
+        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard_footer" />
+
+    <Button
+        android:id="@+id/btn_eight"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:insetLeft="6sp"
+        android:insetTop="6sp"
+        android:insetRight="6sp"
+        android:insetBottom="6dp"
+        android:onClick="addNumber"
+        android:text="@string/eight"
+        android:textAlignment="center"
+
+        android:textSize="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_footer"
+        app:layout_constraintEnd_toStartOf="@+id/separacio_keyboard_right"
+        app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_center"
+        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard_bottom" />
+
+    <Button
+        android:id="@+id/btn_seven"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:insetLeft="6sp"
+        android:insetTop="6sp"
+        android:insetRight="6sp"
+        android:insetBottom="6sp"
+        android:onClick="addNumber"
+        android:text="@string/seven"
+        android:textAlignment="center"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_footer"
+        app:layout_constraintEnd_toStartOf="@+id/separacio_keyboard_center"
+        app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_left"
+        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard_bottom" />
+
+    <TextView
+        style="@style/alonetrext"
+        android:id="@+id/tv_one"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeMaxTextSize="40dp"
+        android:autoSizeMinTextSize="14dp"
+        android:autoSizeTextType="uniform"
+        android:ellipsize="end"
+        android:fallbackLineSpacing="true"
+        android:foregroundGravity="center_vertical|center|center_horizontal"
+        android:gravity="bottom|fill_vertical|end"
+        android:importantForAutofill="auto|yes"
+        android:scrollbarSize="0dp"
+        android:singleLine="true"
+        android:text="@string/zero"
+        android:textAlignment="gravity"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tv_res"
+        style="@style/alonetrext"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeMaxTextSize="40dp"
+        android:autoSizeMinTextSize="14dp"
+        android:autoSizeTextType="uniform"
+        android:ellipsize="end"
+        android:foregroundGravity="center_vertical|center|center_horizontal"
+        android:gravity="bottom|fill_vertical|end"
+        android:importantForAutofill="auto|yes"
+        android:scrollbarSize="0dp"
+        android:text="@string/zero"
+        android:textAlignment="gravity"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline5"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tv_coin_1"
+        style="@style/alonetrext"
+        android:layout_width="113dp"
+        android:layout_height="84dp"
+        android:layout_marginBottom="-50dp"
+        android:autoSizeTextType="uniform"
+        android:gravity="bottom|center|center_horizontal"
+        android:onClick="dialogChooseTwo"
+        android:text="@string/localcoin"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+        app:layout_constraintEnd_toStartOf="@+id/separacio_keyboard_center"
+        app:layout_constraintHorizontal_bias="0.967"
+        app:layout_constraintStart_toStartOf="@+id/left_border"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_coin_2"
+        style="@style/alonetrext"
+        android:layout_width="166dp"
+        android:layout_height="76dp"
+        android:layout_marginBottom="-50dp"
+        android:autoSizeTextType="uniform"
+        android:fallbackLineSpacing="true"
+        android:gravity="bottom|center|center_horizontal"
+        android:lineSpacingExtra="8sp"
+        android:onClick="dialogChooseone"
+        android:outlineAmbientShadowColor="#FF0404"
+        android:outlineProvider="paddedBounds"
+        android:outlineSpotShadowColor="#FF0000"
+        android:text="@string/btc"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toStartOf="@+id/separacio_keyboard_center"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline6"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/btn_switch_to"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/boton_redondo"
+        android:onClick="switchConversion"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/separacio_keyboard_right"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_center"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:layout_constraintVertical_bias="0.735"
+        app:srcCompat="@drawable/ic_baseline_wifi_protected_setup_24"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
