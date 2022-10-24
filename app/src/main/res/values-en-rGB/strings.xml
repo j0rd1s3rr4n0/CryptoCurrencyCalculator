@@ -23,4 +23,7 @@
     <string name="seven">7</string>
     <string name="switch_to_description">Toggle currency exchange</string>
     <string name="error_request">An error occurred while contacting the server.</string>
+    <string name="error_ammount_higher">Value Too Large</string>
+    <string name="error_ammount_smaller">Value Too Smaller</string>
+    <string name="value_choosed">"Selected Value: "</string>
 </resources>

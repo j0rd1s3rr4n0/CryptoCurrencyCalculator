@@ -23,4 +23,7 @@
     <string name="seven">7</string>
     <string name="switch_to_description">Changer de monnaie</string>
     <string name="error_request">Une erreur s\'est produite lors de la communication avec le serveur.</string>
+    <string name="error_ammount_higher">Valeur trop importante</string>
+    <string name="error_ammount_smaller">Valeur trop faible</string>
+    <string name="value_choosed">"Valeur sélectionnée : "</string>
 </resources>

@@ -224,7 +224,7 @@
         android:backgroundTintMode="add"
         android:drawableTint="#FFFFFF"
         android:freezesText="false"
-        android:insetLeft="2dp"
+        android:insetLeft="5dp"
         android:insetTop="6dp"
         android:insetRight="3sp"
         android:insetBottom="6dp"
@@ -281,11 +281,11 @@
         android:text="@string/zero"
         android:textAlignment="gravity"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline25"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_clear_all"
         app:layout_constraintHorizontal_bias="0.922"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline21"
+        app:layout_constraintTop_toTopOf="@+id/guideline27"
         app:layout_constraintVertical_bias="0.757"
         tools:ignore="MissingConstraints" />
 
@@ -305,11 +305,11 @@
         android:text="@string/zero"
         android:textAlignment="gravity"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline25"
         app:layout_constraintEnd_toStartOf="@+id/guideline19"
         app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline27"
+        app:layout_constraintTop_toTopOf="@+id/guideline21"
         app:layout_constraintVertical_bias="0.274"
         tools:ignore="MissingConstraints" />
 
@@ -322,17 +322,19 @@
         android:gravity="bottom|center|center_horizontal"
         android:onClick="dialogChooseTwo"
         android:text="@string/localcoin"
-        app:layout_constraintBottom_toTopOf="@+id/tv_one"
+        app:layout_constraintBottom_toTopOf="@+id/guideline21"
         app:layout_constraintEnd_toStartOf="@+id/btn_switch_to"
+        app:layout_constraintHorizontal_bias="0.378"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tv_coin_2"
         style="@style/alonetrext"
-        android:layout_width="166dp"
-        android:layout_height="76dp"
+        android:layout_width="113dp"
+        android:layout_height="0dp"
         android:autoSizeTextType="uniform"
         android:fallbackLineSpacing="true"
         android:gravity="bottom|center|center_horizontal"
@@ -410,7 +412,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.63" />
+        app:layout_constraintGuide_percent="0.61" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline27"
@@ -418,6 +420,26 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.81" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/guideline21"
+        app:layout_constraintStart_toEndOf="@+id/tv_coin_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8"
+        app:srcCompat="@drawable/ic_baseline_signal_cellular_4_bar_24" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/tv_one"
+        app:layout_constraintStart_toEndOf="@+id/tv_coin_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline26"
+        app:layout_constraintVertical_bias="0.8"
+        app:srcCompat="@drawable/ic_baseline_signal_cellular_4_bar_24" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

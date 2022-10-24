@@ -23,4 +23,7 @@
     <string name="seven">7</string>
     <string name="switch_to_description">Cambio valuta alternativo</string>
     <string name="error_request">Si è verificato un errore durante il contatto con il server.</string>
+    <string name="error_ammount_higher">Valore troppo grande</string>
+    <string name="error_ammount_smaller">Valore troppo piccolo</string>
+    <string name="value_choosed">"Valore selezionato: "</string>
 </resources>

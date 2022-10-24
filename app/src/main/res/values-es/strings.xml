@@ -23,4 +23,7 @@
     <string name="seven">7</string>
     <string name="switch_to_description">Alterne el intercambio de las monedas</string>
     <string name="error_request">Se produjo un error al contactar con el Servidor</string>
+    <string name="error_ammount_higher">Valor Demasiado Grande</string>
+    <string name="error_ammount_smaller">Valor demasiado pequeño</string>
+    <string name="value_choosed">"Valor Seleccionado: "</string>
 </resources>

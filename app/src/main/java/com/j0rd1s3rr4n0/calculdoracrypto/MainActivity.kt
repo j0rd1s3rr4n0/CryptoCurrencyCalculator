@@ -8,7 +8,6 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import okhttp3.*
@@ -31,7 +30,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnComa  : Button
     lateinit var coinOne  : TextView
     lateinit var coinTwo  : TextView
-    private lateinit var llm: LinearLayoutManager
 
     val API_KEY_COINMARKETCAP :String = "bc482525-aea3-451f-98b4-7192dd7c2056"
     val API_URL : String = "https://pro-api.coinmarketcap.com/v2/tools/price-conversion"
@@ -58,14 +56,21 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun alertSnackBar(texto:String){
-        Snackbar.make(
-            findViewById(android.R.id.content), //View genérico del layout
-            "$texto",
-            Snackbar.LENGTH_SHORT
-        ).show()
+    fun alertSnackBar(texto:String,color:String?){
+        val parentLayout = findViewById<View>(android.R.id.content)
+        val snack = Snackbar.make(parentLayout, "$texto", Snackbar.LENGTH_SHORT)
+        val viewSnack = snack.view
+        val params = viewSnack.layoutParams as FrameLayout.LayoutParams
+        params.gravity = Gravity.CENTER_VERTICAL
+        viewSnack.layoutParams = params
+        when(color){
+            "red" -> viewSnack.setBackgroundColor(getColor(R.color.red))
+            "blue" -> viewSnack.setBackgroundColor(getColor(R.color.azulado))
+            else -> {viewSnack.setBackgroundColor(getColor(R.color.amarilaldo))}
+        }
+        snack.show()
     }
-    fun alertSnackBarTop(texto:String){
+    fun alertSnackBarTop(texto:String,color:String?){
         val parentLayout = findViewById<View>(android.R.id.content)
         val snack = Snackbar.make(parentLayout, "$texto", Snackbar.LENGTH_SHORT)
 
@@ -74,52 +79,81 @@ class MainActivity : AppCompatActivity() {
         val params = viewSnack.layoutParams as FrameLayout.LayoutParams
         params.gravity = Gravity.TOP
         viewSnack.layoutParams = params
-        snack.show();
+        when(color){
+            "red" -> viewSnack.setBackgroundColor(getColor(R.color.red))
+            "blue" -> viewSnack.setBackgroundColor(getColor(R.color.azulado))
+            else -> {viewSnack.setBackgroundColor(getColor(R.color.amarilaldo))}
+        }
+        snack.show()
     }
 
     fun getCoins(){
         //alertSnackBarTop("HACIENDO PETICIÓN")
-        var client = OkHttpClient()
-        var apiUrl = API_URL
-        var c1 = coinOne.text
-        var c2 = coinTwo.text // USD,GBP,EUR
-        var amount = txtView.text
+        val client = OkHttpClient()
+        val apiUrl = API_URL
+        val c1 = coinOne.text
+        val c2 = coinTwo.text // USD,GBP,EUR
+        val amount = txtView.text
 
-        var postData = arrayOf("$c1","$amount","$c2")
-        var postDataTitle = arrayOf("symbol","amount","convert")
+        val postData = arrayOf("$c1","$amount","$c2")
+        val postDataTitle = arrayOf("symbol","amount","convert")
         if(Math.round(txtView.text.toString().toDouble()).toString() == "0" || txtView.text.isEmpty()){
             txtRes.text = "0"
-          //  alertSnackBarTop("PETICIÓN COMPLETADA")
+            //  alertSnackBarTop("PETICIÓN COMPLETADA")
         }else{
             try {
-                var request = Request.Builder()
+                val request = Request.Builder()
                     .url(/* url = */ apiUrl+"?amount=$amount&symbol=$c1&convert=$c2")
                     .addHeader("X-CMC_PRO_API_KEY",API_KEY_COINMARKETCAP)
                     .addHeader(postDataTitle[1],postData[1])
                     .addHeader(postDataTitle[0],postData[0])
                     .addHeader(postDataTitle[2],postData[2])
                     .build()
-            //    alertSnackBarTop("PETICIÓN MANDADA")
+                //    alertSnackBarTop("PETICIÓN MANDADA")
 
                 client.newCall(request).enqueue(object: Callback {
 
-                    override fun onFailure(call: Call?, e: IOException?) {
-                        error("Failed"+ e?.printStackTrace().toString())
+                    override fun onFailure(call: Call, e: IOException) {
+                        error("Failed"+ e.printStackTrace().toString())
                     }
-                    override fun onResponse(call: Call?, response: Response?) {
-                        val body = response?.body()?.string()
+                    override fun onResponse(call: Call, response: Response) {
+                        val body = response.body()?.string()
                         println(body)
+                        if("\"erro_code\":400" in body.toString()){
+                            alertSnackBarTop(resources.getString(R.string.error_ammount_higher),"red")
+                            txtRes.text = "0"
+                        }else{
+                            var parsed_price = body.toString().split("{")[5].split(",")[0].split(":")[1]
+                            println("PRECIO: $parsed_price")
 
-                        var parsed_price = body.toString().split("{")[5].split(",")[0].split(":")[1]
-                        println("PRECIO: $parsed_price")
-                        parsed_price = ((Math.round(parsed_price.toDouble() * 10000000000.0))/10000000000).toString()
-                        value_api_data = parsed_price.toDouble()
-                        txtRes.text = value_api_data.toString()
-              //          alertSnackBarTop("PETICIÓN COMPLETADA")
+                            parsed_price = (parsed_price.toDouble()).toString()
+                            value_api_data = parsed_price.toDouble()
+
+                            val diferencia = parsed_price.toString().split(".")[1].length-8
+                            var valforSubstring:Int = (value_api_data.toString().length-diferencia)
+                            if(valforSubstring < 0){
+                                valforSubstring = value_api_data.toString().length
+                            }
+                            var value_api_data_parsed:String = value_api_data.toString()
+
+                            if("E-" in value_api_data.toString()){
+                                alertSnackBarTop(resources.getString(R.string.error_ammount_smaller),"red")
+                                value_api_data_parsed = "0"
+                            }else if("E" in value_api_data.toString()){
+                                alertSnackBarTop(resources.getString(R.string.error_ammount_higher),"red")
+                                value_api_data_parsed = "0"
+                            }else{
+                                if(value_api_data.toString().split(".")[1].length > 8){
+                                    value_api_data_parsed = value_api_data.toString().substring(0,value_api_data_parsed.indexOf(".")+9)
+                                }
+                            }
+                            txtRes.text = value_api_data_parsed
+                            //          alertSnackBarTop("PETICIÓN COMPLETADA")
+                        }
                     }
                 })
             }catch (e:Exception){
-                alertSnackBarTop(resources.getString(R.string.error_request))
+                alertSnackBarTop(resources.getString(R.string.error_request),"red")
             }
         }
     }
@@ -129,31 +163,32 @@ class MainActivity : AppCompatActivity() {
 
 
     fun updateConversion() {
-        // Recoger Valor Numerico   de 1ª Moneda
+        // Recover Valor Numerico   de 1ª Moneda
         var valnumerico = 1.0
         valnumerico  = txtView.text.toString().toDouble()
         // Recoger Valor Conversion de 2ª Moneda
         var conversion = 1
         //txtRes.text.toString().replace(",",".").toDouble(
-        var result = valnumerico * conversion + 0.0;
-        println(result);
+        var result = valnumerico * conversion + 0.0
+        println(result)
 
         if("." in result.toString()){
             var resultat_split = result.toString().split(".")
             if(resultat_split[1].length < 2){
                 if(resultat_split[1].toInt()==0 || resultat_split[1].isEmpty()){
-                //    txtRes.text = resultat_split[0].toString();
+                    //    txtRes.text = resultat_split[0].toString()
                 }
-              //  txtRes.text = result.toString();
+                //  txtRes.text = result.toString()
             }
-            //txtRes.text = result.toString();
+            //txtRes.text = result.toString()
         }else{
-            //txtRes.text = result.toString();
+            //txtRes.text = result.toString()
         }
         try{
             getCoins()
         }catch(e:java.lang.Exception){
-            alertSnackBarTop(resources.getString(R.string.error_request))
+            alertSnackBarTop(resources.getString(R.string.error_request),"red")
+            txtRes.text = "ERROR REQUEST" //TODO PONER ESTO CON SUS CORRESPONDIENTE MSG
         }
     }
 
@@ -162,13 +197,16 @@ class MainActivity : AppCompatActivity() {
 
     fun addNumber(view: View){
         if(view is Button){
-            if("." in txtView.text){
-                if(txtView.text.toString().split(".")[1].length < 8){
-                    txtView.append(view.text)
+            if(calcularLongitudTextView() >= 12){
+                alertSnackBarTop(resources.getString(R.string.error_ammount_higher),"red")
+            }else{
+                if("." in txtView.text){
+                    if(txtView.text.toString().split(".")[1].length < 8){
+                        txtView.append(view.text)
+                    }
                 }
-            }
-            else{
-                if(true){}
+                else{
+                    if(true){}
                     //calcularLongitudTextView() < 8{
                     if( txtView.text.length < 2 && txtView.text.toString() == "0") {
                         txtView.text.toString().dropLast(1)
@@ -176,9 +214,16 @@ class MainActivity : AppCompatActivity() {
                     }else{
                         txtView.append(view.text)
                     }
+                }
+
+            }
+            try{
+                updateConversion()
+            }catch (e:Exception){
+                alertSnackBarTop(resources.getString(R.string.error_request),"red")
             }
         }
-        updateConversion()
+
     }
 
 
@@ -191,8 +236,13 @@ class MainActivity : AppCompatActivity() {
     fun calcularLongitudTextView(): Int {
         var texto = this.txtView.text.toString()
         if("." in texto){
-            var tv_without_comma = texto.split('.')[1]//.replace(",","")
-            return tv_without_comma.length
+            if(texto[texto.length-1].toString() == "."){
+                return texto.length-1
+            }else{
+                var tv_without_comma = texto.split('.')[1]//.replace(",","")
+                return tv_without_comma.length
+            }
+
         }else{
             return texto.length
         }
@@ -235,11 +285,16 @@ class MainActivity : AppCompatActivity() {
         if(calcularLongitudTextView() < 1){
             txtView.setText("0")
         }
-        try{
-            updateConversion()
-        }catch(e:Exception){
-            alertSnackBarTop(resources.getString(R.string.error_request))
+        if(txtView.text.toString()[txtView.text.toString().length-1].toString() == "."){
+            //TODO NO CONVERTIR
+        }else{
+            try{
+                updateConversion()
+            }catch(e:Exception){
+                alertSnackBarTop(resources.getString(R.string.error_request),"red")
+            }
         }
+
 
     }
 
@@ -251,7 +306,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-fun switchConversion(view: View){
+    fun switchConversion(view: View){
         //TEXTOS
         var txt1 = coinOne.text
         var txt2 = coinTwo.text
@@ -265,7 +320,11 @@ fun switchConversion(view: View){
         var numberTwoCrypto = txtRes.text
         txtView.text = numberTwoCrypto
         txtRes.text = numberOneCrypto
-
+        try{
+            updateConversion()
+        }catch(e:Exception){
+            alertSnackBarTop(resources.getString(R.string.error_request),"red")
+        }
     }
 
 
@@ -325,6 +384,9 @@ fun switchConversion(view: View){
                     else -> coinTwo.text = buttonclicked
                 }
             }
+            var texto = resources.getString(R.string.value_choosed)+" $buttonclicked"
+            alertSnackBar(texto,"blue")
+
             dialog.dismiss()
 
         }
@@ -336,11 +398,11 @@ fun switchConversion(view: View){
         return dialog
     }
 
-    fun dialogChooseone(view: View) {
+    fun dialogChooseone() {
         createFormDialog(1).show()
 
     }
-    fun dialogChooseTwo(view: View) {
+    fun dialogChooseTwo() {
         createFormDialog(2).show()
     }
 

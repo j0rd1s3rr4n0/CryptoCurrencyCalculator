@@ -7,6 +7,22 @@
     tools:context=".MainActivity"
     android:background="@color/agrisado">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline28"
+        app:srcCompat="@drawable/ic_baseline_signal_cellular_4_bar_24" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline28"
+        app:srcCompat="@drawable/ic_baseline_signal_cellular_4_bar_24" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/separacio_keyboard"
         android:layout_width="wrap_content"
@@ -254,7 +270,7 @@
         android:backgroundTintMode="add"
         android:drawableTint="#FFFFFF"
         android:freezesText="false"
-        android:insetLeft="2dp"
+        android:insetLeft="5dp"
         android:insetTop="6dp"
         android:insetRight="3sp"
         android:insetBottom="6dp"
@@ -383,8 +399,8 @@
         app:layout_constraintTop_toTopOf="@+id/separacio_keyboard_bottom" />
 
     <TextView
-        style="@style/alonetrext"
         android:id="@+id/tv_one"
+        style="@style/alonetrext"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:autoSizeMaxTextSize="40dp"
@@ -401,9 +417,9 @@
         android:textAlignment="gravity"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_left"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
         app:layout_constraintVertical_bias="1.0" />
 
@@ -424,18 +440,17 @@
         android:textAlignment="gravity"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline14"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_left"
         app:layout_constraintTop_toTopOf="@+id/guideline5"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/tv_coin_1"
         style="@style/alonetrext"
-        android:layout_width="113dp"
-        android:layout_height="84dp"
-        android:layout_marginBottom="-50dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:autoSizeTextType="uniform"
         android:gravity="bottom|center|center_horizontal"
         android:onClick="dialogChooseTwo"
@@ -443,16 +458,15 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toStartOf="@+id/separacio_keyboard_center"
         app:layout_constraintHorizontal_bias="0.967"
-        app:layout_constraintStart_toStartOf="@+id/left_border"
+        app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_left"
         app:layout_constraintTop_toTopOf="@+id/guideline4"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tv_coin_2"
         style="@style/alonetrext"
-        android:layout_width="166dp"
-        android:layout_height="76dp"
-        android:layout_marginBottom="-50dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:autoSizeTextType="uniform"
         android:fallbackLineSpacing="true"
         android:gravity="bottom|center|center_horizontal"
@@ -465,7 +479,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toStartOf="@+id/separacio_keyboard_center"
         app:layout_constraintHorizontal_bias="0.444"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_left"
         app:layout_constraintTop_toTopOf="@+id/guideline6"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -484,6 +498,13 @@
         app:layout_constraintVertical_bias="0.735"
         app:srcCompat="@drawable/ic_baseline_wifi_protected_setup_24"
         tools:ignore="SpeakableTextPresentCheck" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3211679" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
