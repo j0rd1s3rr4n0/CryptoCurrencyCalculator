@@ -54,7 +54,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:autoSizeTextType="uniform"
-        android:autoText="false"
         android:insetLeft="10dp"
         android:insetTop="10dp"
         android:insetRight="10dp"
@@ -172,7 +171,8 @@
         android:text="@string/cancel"
         app:layout_constraintBottom_toTopOf="@+id/guideline16"
         app:layout_constraintTop_toTopOf="@+id/guideline13"
-        tools:layout_editor_absoluteX="202dp" />
+        tools:layout_editor_absoluteX="202dp"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btnOk"
