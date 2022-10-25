@@ -188,7 +188,6 @@
 
     <Button
         android:id="@+id/btnCancelar"
-        style="@style/cancel"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:insetLeft="6dp"
@@ -203,7 +202,6 @@
 
     <Button
         android:id="@+id/btnOk"
-        style="@style/accept"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:autoSizeTextType="uniform"
