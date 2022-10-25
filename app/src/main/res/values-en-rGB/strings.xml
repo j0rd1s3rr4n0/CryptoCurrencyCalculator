@@ -29,4 +29,6 @@
     <string name="noconnection">Error - You Don\'t Have Internet Connection</string>
     <string name="conectionlost">CONNECTION LOST</string>
     <string name="cryptodoesnotexist">THE REQUESTED CURRENCY DOES NOT EXIST</string>
+    <string name="AddNewCrypto">New CryptoCurrency</string>
+    <string name="errorocurred">Error Undefined</string>
 </resources>
