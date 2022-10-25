@@ -157,12 +157,10 @@
         android:text="@string/three"
         android:textAlignment="center"
         android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_middle"
+        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_footer"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_right"
-        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard_bottom" />
 
     <Button
         android:id="@+id/btn_one"
@@ -176,13 +174,12 @@
         android:text="@string/one"
         android:textAlignment="center"
         android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_middle"
+
+        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_footer"
         app:layout_constraintEnd_toStartOf="@+id/separacio_keyboard_center"
         app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_left"
-        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard"
-        tools:ignore="DuplicateClickableBoundsCheck"
-
-        />
+        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard_bottom"
+        tools:ignore="DuplicateClickableBoundsCheck" />
 
     <Button
         android:id="@+id/btn_two"
@@ -196,10 +193,10 @@
         android:text="@string/two"
         android:textAlignment="center"
         android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_middle"
+        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_footer"
         app:layout_constraintEnd_toStartOf="@+id/separacio_keyboard_right"
         app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_center"
-        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard" />
+        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard_bottom" />
 
     <Button
         android:id="@+id/btn_four"
@@ -215,8 +212,10 @@
         android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_bottom"
         app:layout_constraintEnd_toStartOf="@+id/separacio_keyboard_center"
+        app:layout_constraintHorizontal_bias="0.34"
         app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_left"
-        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard_middle" />
+        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard_middle"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btn_delete_one"
@@ -307,7 +306,7 @@
         android:textAlignment="center"
         android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_bottom"
-        app:layout_constraintEnd_toStartOf="@+id/btn_six"
+        app:layout_constraintEnd_toStartOf="@+id/separacio_keyboard_right"
         app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_center"
         app:layout_constraintTop_toTopOf="@+id/separacio_keyboard_middle" />
 
@@ -325,10 +324,8 @@
         android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_bottom"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_right"
-        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard_middle"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard_middle" />
 
     <Button
         android:id="@+id/btn_nine"
@@ -342,12 +339,10 @@
         android:text="@string/nine"
         android:textAlignment="center"
         android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_footer"
+        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_middle"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_right"
-        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard_bottom"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard" />
 
     <Button
         android:id="@+id/btn_coma"
@@ -379,10 +374,10 @@
         android:textAlignment="center"
 
         android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_footer"
+        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_middle"
         app:layout_constraintEnd_toStartOf="@+id/separacio_keyboard_right"
         app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_center"
-        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard_bottom" />
+        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard" />
 
     <Button
         android:id="@+id/btn_seven"
@@ -396,10 +391,10 @@
         android:text="@string/seven"
         android:textAlignment="center"
         android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_footer"
+        app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_middle"
         app:layout_constraintEnd_toStartOf="@+id/separacio_keyboard_center"
         app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_left"
-        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard_bottom" />
+        app:layout_constraintTop_toTopOf="@+id/separacio_keyboard" />
 
     <TextView
         android:id="@+id/tv_one"

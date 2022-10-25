@@ -36,11 +36,11 @@
         android:text="@string/one"
         android:textAlignment="center"
         android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline25"
 
+        app:layout_constraintBottom_toTopOf="@+id/guideline27"
         app:layout_constraintEnd_toStartOf="@+id/guideline23"
         app:layout_constraintStart_toStartOf="@+id/guideline19"
-        app:layout_constraintTop_toTopOf="@+id/guideline21"
+        app:layout_constraintTop_toTopOf="@+id/guideline26"
         tools:ignore="DuplicateClickableBoundsCheck,MissingConstraints" />
 
     <Button
@@ -55,10 +55,10 @@
         android:text="@string/two"
         android:textAlignment="center"
         android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline25"
+        app:layout_constraintBottom_toTopOf="@+id/guideline27"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
         app:layout_constraintStart_toStartOf="@+id/guideline23"
-        app:layout_constraintTop_toTopOf="@+id/guideline21"
+        app:layout_constraintTop_toTopOf="@+id/guideline26"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -73,10 +73,12 @@
         android:text="@string/three"
         android:textAlignment="center"
         android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline25"
+        app:layout_constraintBottom_toTopOf="@+id/guideline27"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline24"
-        app:layout_constraintTop_toTopOf="@+id/guideline21"
+        app:layout_constraintHorizontal_bias="0.233"
+        app:layout_constraintStart_toEndOf="@+id/btn_two"
+        app:layout_constraintTop_toTopOf="@+id/guideline26"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -145,10 +147,10 @@
         android:text="@string/seven"
         android:textAlignment="center"
         android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline27"
+        app:layout_constraintBottom_toTopOf="@+id/guideline25"
         app:layout_constraintEnd_toStartOf="@+id/guideline23"
         app:layout_constraintStart_toStartOf="@+id/guideline19"
-        app:layout_constraintTop_toTopOf="@+id/guideline26"
+        app:layout_constraintTop_toTopOf="@+id/guideline21"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -164,10 +166,10 @@
         android:textAlignment="center"
 
         android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline27"
-        app:layout_constraintEnd_toStartOf="@+id/guideline24"
+        app:layout_constraintBottom_toTopOf="@+id/guideline25"
+        app:layout_constraintEnd_toEndOf="@+id/btn_two"
         app:layout_constraintStart_toStartOf="@+id/guideline23"
-        app:layout_constraintTop_toTopOf="@+id/guideline26"
+        app:layout_constraintTop_toTopOf="@+id/guideline21"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -182,10 +184,10 @@
         android:text="@string/nine"
         android:textAlignment="center"
         android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline27"
+        app:layout_constraintBottom_toTopOf="@+id/guideline25"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline24"
-        app:layout_constraintTop_toTopOf="@+id/guideline26"
+        app:layout_constraintTop_toTopOf="@+id/guideline21"
         tools:ignore="MissingConstraints" />
 
     <Button
