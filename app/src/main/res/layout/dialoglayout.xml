@@ -18,8 +18,8 @@
         android:textAllCaps="true"
         android:textStyle="normal|bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline9"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
         app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -28,6 +28,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:autoSizeTextType="uniform"
+        android:backgroundTint="#FF0000"
         android:insetLeft="6dp"
         android:insetTop="6dp"
         android:insetRight="6dp"
@@ -76,7 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="27dp" />
+        app:layout_constraintGuide_end="16dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline10"
@@ -160,13 +161,6 @@
         app:layout_constraintStart_toStartOf="@+id/guideline10"
         app:layout_constraintTop_toTopOf="@+id/guideline11" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="224dp" />
-
     <Button
         android:id="@+id/button5"
         android:layout_width="0dp"
@@ -177,14 +171,15 @@
         android:insetBottom="6dp"
         android:text="@string/cancel"
         app:layout_constraintBottom_toTopOf="@+id/guideline16"
-        app:layout_constraintEnd_toStartOf="@+id/guideline15"
-        app:layout_constraintTop_toTopOf="@+id/guideline13" />
+        app:layout_constraintTop_toTopOf="@+id/guideline13"
+        tools:layout_editor_absoluteX="202dp" />
 
     <Button
         android:id="@+id/btnOk"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:autoSizeTextType="uniform"
+        android:backgroundTint="#2196F3"
         android:insetLeft="6dp"
         android:insetTop="6dp"
         android:insetRight="6dp"
