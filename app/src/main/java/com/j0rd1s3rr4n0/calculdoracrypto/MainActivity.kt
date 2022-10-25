@@ -21,8 +21,11 @@ import java.io.IOException
 *
 * 2. Añadir monedas
 *
-*
-*
+* 3. Añador Boton de Informacion
+*  - Manual de Uso
+*  - Boton Abre el Proyecto
+*  - Lista de Algnas Cryptos que se pueden añadir
+*  - CREDITOS @j0rd1s3rr4n0
 */
 class MainActivity : AppCompatActivity() {
     var value_api_data : Double = 0.0
