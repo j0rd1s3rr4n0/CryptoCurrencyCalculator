@@ -29,5 +29,6 @@
     <string name="cryptodoesnotexist">LA MONEDA SOLICITADA NO EXISTE EXISTE</string>
     <string name="noconnection">Error - No tiene conexión a Internet</string>
     <string name="conectionlost">CONEXIÓN PERDIDA</string>
-    <string name="errorocurred">Error Undefined</string>
+    <string name="errorocurred">Error Indefinido</string>
+    <string name="AddNewCrypto">Nueva CryptoMoneda</string>
 </resources>

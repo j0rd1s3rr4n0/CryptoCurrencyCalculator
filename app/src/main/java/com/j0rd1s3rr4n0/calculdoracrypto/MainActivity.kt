@@ -129,7 +129,7 @@ class MainActivity : AppCompatActivity() {
         val client = OkHttpClient()
         val apiUrl = API_URL
         val c1 = coinOne.text
-        val c2 = "BTOA" // USD,GBP,EUR
+        val c2 = coinTwo.text // USD,GBP,EUR
         val amount = txtView.text
         val_txt_data = txtView.text.toString()
         val postData = arrayOf("$c1","$amount","$c2")
@@ -163,6 +163,8 @@ class MainActivity : AppCompatActivity() {
                                 txtRes.text = "0"
                             } else if("Invalid value for \\\"convert\\\":" in body.toString()){
                                 alertSnackBarTop(resources.getString(R.string.cryptodoesnotexist), "red")
+                            }else{
+                                alertSnackBarTop(resources.getString(R.string.errorocurred), "red")
                             }
                         }else if("\"price\":null" in body.toString()){
                             txtRes.text = resources.getString(R.string.cryptodoesnotexist)

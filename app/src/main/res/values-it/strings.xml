@@ -29,5 +29,6 @@
     <string name="noconnection">Errore - Non si dispone di una connessione a Internet</string>
     <string name="conectionlost">CONNESSIONE PERSA</string>
     <string name="cryptodoesnotexist">LA VALUTA RICHIESTA NON ESISTE</string>
-    <string name="errorocurred">Error Undefined</string>
+    <string name="errorocurred">Errore non definito</string>
+    <string name="AddNewCrypto">Nuova criptovaluta</string>
 </resources>
