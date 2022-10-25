@@ -14,9 +14,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import okhttp3.*
 import java.io.IOException
-<<<<<<< Updated upstream
 
-=======
+
 //TODO QUEDAN LAS SIQUIENTES COSAS
 /*
 * 1. Reemplazar comas por puntos al usuario
@@ -28,7 +27,6 @@ import java.io.IOException
 *    - Añadir Instrucciones de la App
 *    - Añadir Listado de todas las criptomonedas
 */
->>>>>>> Stashed changes
 class MainActivity : AppCompatActivity() {
     var value_api_data : Double = 0.0
     lateinit var txtView  : TextView
@@ -47,6 +45,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var coinOne  : TextView
     lateinit var coinTwo  : TextView
 
+    var valnewcrypto:String = ""
     val API_KEY_COINMARKETCAP :String = "bc482525-aea3-451f-98b4-7192dd7c2056"
     val API_URL : String = "https://pro-api.coinmarketcap.com/v2/tools/price-conversion"
 
@@ -83,7 +82,6 @@ class MainActivity : AppCompatActivity() {
         val_res_data = txtRes.text.toString()
         val_txtcoin_data = coinOne.text.toString()
         val_rescoin_data = coinTwo.text.toString()
-        AddNewCrypto(1)
     }
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
@@ -157,235 +155,269 @@ class MainActivity : AppCompatActivity() {
                     }
                     override fun onResponse(call: Call, response: Response) {
                         val body = response.body()?.string()
-<<<<<<< Updated upstream
+
                         println(body)
                         if("\"erro_code\":400" in body.toString()){
                             alertSnackBarTop(resources.getString(R.string.error_ammount_higher),"red")
                             txtRes.text = "0"
-=======
-                        println("BODY: "+body)
-                        var b_response = body.toString()
 
-                        if(b_response.contains("\"error_code\":400")) {
+                            println("BODY: "+body)
+                            var b_response = body.toString()
 
-                            if (b_response.contains("\"amount\"")) {
-                                alertSnackBarTop(resources.getString(R.string.error_ammount_higher), "red")
-                                txtRes.text = "0"
-                            } else{
-                                if("Invalid value for \\\"convert\\\":" in body.toString()) {
-                                    alertSnackBarTop(
-                                        resources.getString(R.string.cryptodoesnotexist),
-                                        "red"
-                                    )
+                            if(b_response.contains("\"error_code\":400")) {
+
+                                if (b_response.contains("\"amount\"")) {
+                                    alertSnackBarTop(resources.getString(R.string.error_ammount_higher), "red")
+                                    txtRes.text = "0"
+                                } else{
+                                    if("Invalid value for \\\"convert\\\":" in body.toString()) {
+                                        alertSnackBarTop(
+                                            resources.getString(R.string.cryptodoesnotexist),
+                                            "red"
+                                        )
+                                    }
                                 }
-                            }
 
-                        }else if("\"price\":null" in body.toString()){
+                            }else if("\"price\":null" in body.toString()){
 
-                            txtRes.text = resources.getString(R.string.cryptodoesnotexist)
+                                txtRes.text = resources.getString(R.string.cryptodoesnotexist)
 
->>>>>>> Stashed changes
-                        }else{
-
-                            var parsed_price = body.toString().split("{")[5].split(",")[0].split(":")[1]
-                            println("PRECIO: $parsed_price")
-
-                            parsed_price = (parsed_price.toDouble()).toString()
-                            value_api_data = parsed_price.toDouble()
-
-                            val diferencia = parsed_price.toString().split(".")[1].length-8
-                            var valforSubstring:Int = (value_api_data.toString().length-diferencia)
-                            if(valforSubstring < 0){
-                                valforSubstring = value_api_data.toString().length
-                            }
-                            var value_api_data_parsed:String = value_api_data.toString()
-
-                            if("E-" in value_api_data.toString()){
-                                alertSnackBarTop(resources.getString(R.string.error_ammount_smaller),"red")
-                                value_api_data_parsed = "0"
-                            }else if("E" in value_api_data.toString()){
-                                alertSnackBarTop(resources.getString(R.string.error_ammount_higher),"red")
-                                value_api_data_parsed = "0"
                             }else{
-                                if(value_api_data.toString().split(".")[1].length > 8){
-                                    value_api_data_parsed = value_api_data.toString().substring(0,value_api_data_parsed.indexOf(".")+9)
+
+                                var parsed_price = body.toString().split("{")[5].split(",")[0].split(":")[1]
+                                println("PRECIO: $parsed_price")
+
+                                parsed_price = (parsed_price.toDouble()).toString()
+                                value_api_data = parsed_price.toDouble()
+
+                                val diferencia = parsed_price.toString().split(".")[1].length-8
+                                var valforSubstring:Int = (value_api_data.toString().length-diferencia)
+                                if(valforSubstring < 0){
+                                    valforSubstring = value_api_data.toString().length
                                 }
-                            }
-                            txtRes.text = value_api_data_parsed
-                            val_res_data = value_api_data_parsed
-                            saveStats()
-                        }
-                    }
-                })
-            }catch (e:Exception){
-                alertSnackBarTop(resources.getString(R.string.error_request),"red")
-            }
-        }
-    }
+                                var value_api_data_parsed:String = value_api_data.toString()
 
-
-
-    fun AddNewCrypto(buttonSelected: Int) {
-        var valorprefav = ""
-
-        var edtNewCoin: EditText = EditText(this)
-        edtNewCoin.inputType = InputType.TYPE_CLASS_TEXT //Cambiar el type del EditText a Number
-        MaterialAlertDialogBuilder(this)
-            .setTitle("ESCRIBA EL CODIGO DE LA CRIPTOMONEDA QUE DESEA AÑADIR")
-            .setCancelable(true)
-            .setMessage("Ejemplo:\nBitCoin → BTC\nBinanceCoin → BNB")
-            .setView(edtNewCoin)
-            .setNegativeButton(resources.getString(R.string.cancel),null)
-            .setPositiveButton(resources.getString(R.string.usetext)) { dialog, which ->
-                var valorfinal:String = edtNewCoin.text.toString().toUpperCase()
-                alertSnackBar(resources.getString(R.string.value_choosed)+valorfinal,"blue")
-
-            }
-            .show()
-    }
-
-    fun updateConversion() {
-        // Recover Valor Numerico   de 1ª Moneda
-        var valnumerico = 1.0
-        valnumerico  = txtView.text.toString().toDouble()
-        // Recoger Valor Conversion de 2ª Moneda
-        var conversion = 1
-        //txtRes.text.toString().replace(",",".").toDouble(
-        var result = valnumerico * conversion + 0.0
-        println(result)
-
-        if("." in result.toString()){
-            var resultat_split = result.toString().split(".")
-            if(resultat_split[1].length < 2){
-                if(resultat_split[1].toInt()==0 || resultat_split[1].isEmpty()){
-                    //    txtRes.text = resultat_split[0].toString()
+                                if("E-" in value_api_data.toString()){
+                                    alertSnackBarTop(resources.getString(R.string.error_ammount_smaller),"red")
+                                    value_api_data_parsed = "0"
+                                }else if("E" in value_api_data.toString()){
+                                    alertSnackBarTop(resources.getString(R.string.error_ammount_higher),"red")
+                                    value_api_data_parsed = "0"
+                                }else{
+                                    if(value_api_data.toString().split(".")[1].length > 8){
+                                        value_api_data_parsed = value_api_data.toString().substring(0,value_api_data_parsed.indexOf(".")+9)
+                                    }
+                                }
+                                txtRes.text = value_api_data_parsed
+                                val_res_data = value_api_data_parsed
+                                saveStats()
+                                }
+                         }
+                      }
+                  })
+                }catch (e:Exception){
+                    alertSnackBarTop(resources.getString(R.string.error_request),"red")
                 }
-                //  txtRes.text = result.toString()
             }
-            //txtRes.text = result.toString()
-        }else{
-            //txtRes.text = result.toString()
         }
-        try{
-            getCoins()
-            saveStats()
-        }catch(e:java.lang.Exception){
-            alertSnackBarTop(resources.getString(R.string.error_request),"red")
-            txtRes.text = "ERROR REQUEST" //TODO PONER ESTO CON SUS CORRESPONDIENTE MSG
-        }
-    }
 
 
 
+        fun AddNewCrypto(buttonSelected: Int) {
+            var valorprefav = ""
 
-
-
-    fun addNumber(view: View){
-        if(view is Button){
-            if(calcularLongitudTextView() >= 12){
-                alertSnackBarTop(resources.getString(R.string.error_ammount_higher),"red")
-            }else{
-                if("." in txtView.text){
-                    if(txtView.text.toString().split(".")[1].length < 8){
-                        txtView.append(view.text)
-                    }
-                }
-                else{
-                    if(true){}
-                    //calcularLongitudTextView() < 8{
-                    if( txtView.text.length < 2 && txtView.text.toString() == "0") {
-                        txtView.text.toString().dropLast(1)
-                        txtView.setText(view.text)
+            var edtNewCoin: EditText = EditText(this)
+            edtNewCoin.inputType = InputType.TYPE_CLASS_TEXT //Cambiar el type del EditText a Number
+            MaterialAlertDialogBuilder(this)
+                .setTitle("ESCRIBA EL CODIGO DE LA CRIPTOMONEDA QUE DESEA AÑADIR")
+                .setCancelable(true)
+                .setMessage("Ejemplo:\nBitCoin → BTC\nBinanceCoin → BNB")
+                .setView(edtNewCoin)
+                .setNegativeButton(resources.getString(R.string.cancel),null)
+                .setPositiveButton(resources.getString(R.string.usetext)) { dialog, which ->
+                    if(edtNewCoin.text.toString()!=""){
+                        valnewcrypto = edtNewCoin.text.toString().toUpperCase()
                     }else{
-                        txtView.append(view.text)
+                        valnewcrypto = resources.getString(R.string.notdefined_default)
                     }
-                }
 
+
+                }
+                .show()
+        }
+
+        fun updateConversion() {
+            // Recover Valor Numerico   de 1ª Moneda
+            var valnumerico = 1.0
+            valnumerico  = txtView.text.toString().toDouble()
+            // Recoger Valor Conversion de 2ª Moneda
+            var conversion = 1
+            //txtRes.text.toString().replace(",",".").toDouble(
+            var result = valnumerico * conversion + 0.0
+            println(result)
+
+            if("." in result.toString()){
+                var resultat_split = result.toString().split(".")
+                if(resultat_split[1].length < 2){
+                    if(resultat_split[1].toInt()==0 || resultat_split[1].isEmpty()){
+                        //    txtRes.text = resultat_split[0].toString()
+                    }
+                    //  txtRes.text = result.toString()
+                }
+                //txtRes.text = result.toString()
+            }else{
+                //txtRes.text = result.toString()
             }
             try{
-
-                updateConversion()
+                getCoins()
                 saveStats()
-            }catch (e:Exception){
+            }catch(e:java.lang.Exception){
                 alertSnackBarTop(resources.getString(R.string.error_request),"red")
+                txtRes.text = "ERROR REQUEST" //TODO PONER ESTO CON SUS CORRESPONDIENTE MSG
             }
         }
 
-    }
 
 
 
 
 
-
-
-
-    fun calcularLongitudTextView(): Int {
-        var texto = this.txtView.text.toString()
-        if("." in texto){
-            if(texto[texto.length-1].toString() == "."){
-                saveStats()
-                return texto.length-1
-            }else{
-                var tv_without_comma = texto.split('.')[1]//.replace(",","")
-                saveStats()
-                return tv_without_comma.length
-            }
-
-        }else{
-            saveStats()
-            return texto.length
-
-        }
-        //println(tv_without_comma+" , "+tv_without_comma.length.toString())
-
-    }
-
-
-
-
-    fun cleanAll(view: View){
-        txtView.text = "0"
-        txtRes.text = "0"
-        saveStats()
-    }
-
-
-
-
-    fun insertComa(view: View){
-        if("." in txtView.text.toString()){
-            //SnackBar Ya Existe este Valor
-        }else{
-            if(this.calcularLongitudTextView() > 8){ // SE TIENE QUE QUITAR LA LONGITUD QUE OCUPA LA COMA
-                // EXCEDE LOS 8 CARACTEERS
-            }else {
-                if(txtView.text != ""){
-                    txtView.append(".")
-                    saveStats()
+        fun addNumber(view: View){
+            if(view is Button){
+                if(calcularLongitudTextView() >= 12){
+                    alertSnackBarTop(resources.getString(R.string.error_ammount_higher),"red")
                 }else{
-                    txtView.append("0.")
-                    saveStats()
+                    if("." in txtView.text){
+                        if(txtView.text.toString().split(".")[1].length < 8){
+                            txtView.append(view.text)
+                        }
+                    }
+                    else{
+                        if(true){}
+                        //calcularLongitudTextView() < 8{
+                        if( txtView.text.length < 2 && txtView.text.toString() == "0") {
+                            txtView.text.toString().dropLast(1)
+                            txtView.setText(view.text)
+                        }else{
+                            txtView.append(view.text)
+                        }
+                    }
 
                 }
+                try{
+
+                    updateConversion()
+                    saveStats()
+                }catch (e:Exception){
+                    alertSnackBarTop(resources.getString(R.string.error_request),"red")
+                }
             }
+
         }
-        saveStats()
-    }
 
 
 
-    fun delLast(view: View){
-        var str = txtView.text.toString().dropLast(1)
-        txtView.text = str
-        if(calcularLongitudTextView() < 1){
-            txtView.setText("0")
+
+
+
+
+
+        fun calcularLongitudTextView(): Int {
+            var texto = this.txtView.text.toString()
+            if("." in texto){
+                if(texto[texto.length-1].toString() == "."){
+                    saveStats()
+                    return texto.length-1
+                }else{
+                    var tv_without_comma = texto.split('.')[1]//.replace(",","")
+                    saveStats()
+                    return tv_without_comma.length
+                }
+
+            }else{
+                saveStats()
+                return texto.length
+
+            }
+            //println(tv_without_comma+" , "+tv_without_comma.length.toString())
+
+        }
+
+
+
+
+        fun cleanAll(view: View){
+            txtView.text = "0"
+            txtRes.text = "0"
             saveStats()
+        }
+
+
+
+
+        fun insertComa(view: View){
+            if("." in txtView.text.toString()){
+                //SnackBar Ya Existe este Valor
+            }else{
+                if(this.calcularLongitudTextView() > 8){ // SE TIENE QUE QUITAR LA LONGITUD QUE OCUPA LA COMA
+                    // EXCEDE LOS 8 CARACTEERS
+                }else {
+                    if(txtView.text != ""){
+                        txtView.append(".")
+                        saveStats()
+                    }else{
+                        txtView.append("0.")
+                        saveStats()
+
+                    }
+                }
+            }
+            saveStats()
+        }
+
+
+
+        fun delLast(view: View){
+            var str = txtView.text.toString().dropLast(1)
+            txtView.text = str
+            if(calcularLongitudTextView() < 1){
+                txtView.setText("0")
+                saveStats()
+
+            }
+            if(txtView.text.toString()[txtView.text.toString().length-1].toString() == "."){
+                //TODO NO CONVERTIR
+            }else{
+                try{
+                    updateConversion()
+                    saveStats()
+                }catch(e:Exception){
+                    alertSnackBarTop(resources.getString(R.string.error_request),"red")
+                }
+            }
+            val_txt_data = txtView.text.toString()
+            val_res_data = txtRes.text.toString()
 
         }
-        if(txtView.text.toString()[txtView.text.toString().length-1].toString() == "."){
-            //TODO NO CONVERTIR
-        }else{
+
+
+
+
+        fun switchConversion(view: View){
+            //TEXTOS
+            var txt1 = coinOne.text
+            var txt2 = coinTwo.text
+            var tmp_text = txt1.toString()
+
+            coinOne.text = txt2.toString()
+            coinTwo.text = tmp_text
+
+            //CALCULOS
+            var numberOneCrypto = txtView.text
+            var numberTwoCrypto = txtRes.text
+            txtView.text = numberTwoCrypto
+            txtRes.text = numberOneCrypto
+            saveStats()
             try{
                 updateConversion()
                 saveStats()
@@ -393,136 +425,112 @@ class MainActivity : AppCompatActivity() {
                 alertSnackBarTop(resources.getString(R.string.error_request),"red")
             }
         }
-        val_txt_data = txtView.text.toString()
-        val_res_data = txtRes.text.toString()
-
-    }
 
 
+        fun createFormDialog(forWhoisChoosing:Int): androidx.appcompat.app.AlertDialog {
 
+            var inflater: LayoutInflater = layoutInflater
 
-    fun switchConversion(view: View){
-        //TEXTOS
-        var txt1 = coinOne.text
-        var txt2 = coinTwo.text
-        var tmp_text = txt1.toString()
+            val v: View = inflater.inflate(R.layout.dialoglayout, null)
 
-        coinOne.text = txt2.toString()
-        coinTwo.text = tmp_text
+            val btn_btc_dialog:Button = v.findViewById(R.id.btccoin)
+            val btn_ltc_dialog:Button = v.findViewById(R.id.ltccoin)
+            val btn_ada_dialog:Button = v.findViewById(R.id.adacoin)
+            val btn_local_dialog:Button = v.findViewById(R.id.locaicoin)
+            val btn_new_crypto:Button = v.findViewById(R.id.btnaddNewCrypto)
+            var buttonclicked: String? = ""
 
-        //CALCULOS
-        var numberOneCrypto = txtView.text
-        var numberTwoCrypto = txtRes.text
-        txtView.text = numberTwoCrypto
-        txtRes.text = numberOneCrypto
-        saveStats()
-        try{
-            updateConversion()
-            saveStats()
-        }catch(e:Exception){
-            alertSnackBarTop(resources.getString(R.string.error_request),"red")
-        }
-    }
+            var builder = MaterialAlertDialogBuilder(this)
+            builder.setView(v)
 
+            val activeOne:TextView = coinOne
+            val activeTwo:TextView = coinTwo
+            when(forWhoisChoosing){
+                1 -> {
+                    activeOne.text = coinOne.text
+                    val_txtcoin_data = coinOne.text.toString()
+                }
+                else -> {
+                    activeTwo.text = coinTwo.text
+                    val_txtcoin_data = coinTwo.text.toString()
 
-    fun createFormDialog(forWhoisChoosing:Int): androidx.appcompat.app.AlertDialog {
-
-        var inflater: LayoutInflater = layoutInflater
-
-        val v: View = inflater.inflate(R.layout.dialoglayout, null)
-
-        val btn_btc_dialog:Button = v.findViewById(R.id.btccoin)
-        val btn_ltc_dialog:Button = v.findViewById(R.id.ltccoin)
-        val btn_ada_dialog:Button = v.findViewById(R.id.adacoin)
-        val btn_local_dialog:Button = v.findViewById(R.id.locaicoin)
-        val btn_new_crypto:Button = v.findViewById(R.id.btnaddNewCrypto)
-        var buttonclicked: String? = ""
-
-        var builder = MaterialAlertDialogBuilder(this)
-        builder.setView(v)
-
-        val activeOne:TextView = coinOne
-        val activeTwo:TextView = coinTwo
-        when(forWhoisChoosing){
-            1 -> {
-                activeOne.text = coinOne.text
-                val_txtcoin_data = coinOne.text.toString()
-            }
-            else -> {
-                activeTwo.text = coinTwo.text
-                val_txtcoin_data = coinTwo.text.toString()
-
-            }
-        }
-        saveStats()
-
-        btn_btc_dialog.setOnClickListener{
-            buttonclicked = btn_btc_dialog.text.toString()
-        }
-        btn_ada_dialog.setOnClickListener{
-            buttonclicked = btn_ada_dialog.text.toString()
-        }
-        btn_local_dialog.setOnClickListener{
-            buttonclicked = btn_local_dialog.text.toString()
-        }
-        btn_ltc_dialog.setOnClickListener {
-            buttonclicked = btn_ltc_dialog.text.toString()
-        }
-        btn_new_crypto.setOnClickListener {
-            buttonclicked = AddNewCrypto(forWhoisChoosing).toString()
-        }
-
-
-
-
-
-
-
-
-
-        val ok: Button = v.findViewById(R.id.btnOk)
-        val cancel: Button = v.findViewById(R.id.btnCancel)
-
-        val dialog = builder.create()
-
-        ok.setOnClickListener{
-            println("OK")
-            if(buttonclicked!="" || !(buttonclicked!!.isEmpty())) {
-                when (forWhoisChoosing) {
-                    1 -> coinOne.text = buttonclicked
-                    else -> coinTwo.text = buttonclicked
                 }
             }
-            var texto = resources.getString(R.string.value_choosed)+" $buttonclicked"
-            alertSnackBar(texto,"blue")
+            saveStats()
 
-            dialog.dismiss()
+            btn_btc_dialog.setOnClickListener{
+                buttonclicked = btn_btc_dialog.text.toString()
+            }
+            btn_ada_dialog.setOnClickListener{
+                buttonclicked = btn_ada_dialog.text.toString()
+            }
+            btn_local_dialog.setOnClickListener{
+                buttonclicked = btn_local_dialog.text.toString()
+            }
+            btn_ltc_dialog.setOnClickListener {
+                buttonclicked = btn_ltc_dialog.text.toString()
+            }
+            btn_new_crypto.setOnClickListener {
+                AddNewCrypto(forWhoisChoosing).toString()
+                var textonotdefinedefault = resources.getString(R.string.notdefined_default)
+                if (valnewcrypto.isNotEmpty() && valnewcrypto.isNotBlank() && valnewcrypto != textonotdefinedefault) {
+                    buttonclicked = valnewcrypto
+                } else{
+                    buttonclicked = textonotdefinedefault
+                }
+            }
+
+
+
+
+
+
+
+
+
+            val ok: Button = v.findViewById(R.id.btnOk)
+            val cancel: Button = v.findViewById(R.id.btnCancel)
+
+            val dialog = builder.create()
+
+            ok.setOnClickListener{
+                println("OK")
+                if(buttonclicked!="" || !(buttonclicked!!.isEmpty())) {
+                    when (forWhoisChoosing) {
+                        1 -> coinOne.text = buttonclicked
+                        else -> coinTwo.text = buttonclicked
+                    }
+                }
+                var texto = resources.getString(R.string.value_choosed)+" $buttonclicked"
+                alertSnackBar(texto,"blue")
+
+                dialog.dismiss()
+
+            }
+            cancel.setOnClickListener{
+                println("Cancelar")
+                dialog.dismiss()
+            }
+            saveStats()
+            return dialog
+        }
+
+        fun dialogChooseone(view:View) {
+            createFormDialog(1).show()
 
         }
-        cancel.setOnClickListener{
-            println("Cancelar")
-            dialog.dismiss()
+        fun dialogChooseTwo(view:View) {
+            createFormDialog(2).show()
         }
-        saveStats()
-        return dialog
+
+
+        fun saveStats(){
+            val_txt_data = txtView.text.toString()
+            val_res_data = txtRes.text.toString()
+            val_txtcoin_data = coinOne.text.toString()
+            val_rescoin_data = coinTwo.text.toString()
+        }
+
+
     }
-
-    fun dialogChooseone(view:View) {
-        createFormDialog(1).show()
-
-    }
-    fun dialogChooseTwo(view:View) {
-        createFormDialog(2).show()
-    }
-
-
-    fun saveStats(){
-        val_txt_data = txtView.text.toString()
-        val_res_data = txtRes.text.toString()
-        val_txtcoin_data = coinOne.text.toString()
-        val_rescoin_data = coinTwo.text.toString()
-    }
-
-
-}
 
