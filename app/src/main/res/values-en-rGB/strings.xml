@@ -26,12 +26,9 @@
     <string name="error_ammount_higher">Value Too Large</string>
     <string name="error_ammount_smaller">Value Too Smaller</string>
     <string name="value_choosed">"Selected Value: "</string>
-<<<<<<< Updated upstream
-=======
     <string name="noconnection">Error - You Don\'t Have Internet Connection</string>
     <string name="conectionlost">CONNECTION LOST</string>
     <string name="cryptodoesnotexist">THE REQUESTED CURRENCY DOES NOT EXIST</string>
     <string name="usetext">USE</string>
     <string name="AddNewCrypto">New CryptoCurrency</string>
->>>>>>> Stashed changes
 </resources>
