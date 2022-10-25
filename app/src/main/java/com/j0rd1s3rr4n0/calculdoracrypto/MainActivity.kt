@@ -36,8 +36,8 @@ class MainActivity : AppCompatActivity() {
 
     var val_txt_data : String = ""
     var val_res_data : String = ""
-    var val_txtcoin_data : String = ""
-    var val_rescoin_data : String = ""
+    private var val_txtcoin_data : String = ""
+    private var val_rescoin_data : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,8 +55,8 @@ class MainActivity : AppCompatActivity() {
         btnNine  = findViewById(R.id.btn_nine)
         btnZero  = findViewById(R.id.btn_zero)
         btnComa  = findViewById(R.id.btn_coma)
-        coinOne  = findViewById(R.id.tv_coin_1)
-        coinTwo  = findViewById(R.id.tv_coin_2)
+        coinOne  = findViewById(R.id.tv_coin_2)
+        coinTwo  = findViewById(R.id.tv_coin_1)
         if(savedInstanceState!=null){
             txtView.text = savedInstanceState?.getString("txtview_data").toString()
             txtRes.text = savedInstanceState?.getString("txtres_data").toString()
