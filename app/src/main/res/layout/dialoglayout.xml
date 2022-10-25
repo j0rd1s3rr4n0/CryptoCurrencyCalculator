@@ -48,11 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-<<<<<<< Updated upstream
-        app:layout_constraintGuide_percent="0.1075" />
-=======
         app:layout_constraintGuide_begin="33dp" />
->>>>>>> Stashed changes
 
     <Button
         android:id="@+id/btccoin"
@@ -97,44 +93,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-<<<<<<< Updated upstream
-        app:layout_constraintGuide_percent="0.3475" />
-=======
         app:layout_constraintGuide_begin="105dp" />
->>>>>>> Stashed changes
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-<<<<<<< Updated upstream
-        app:layout_constraintGuide_percent="0.5875" />
-=======
         app:layout_constraintGuide_begin="175dp" />
->>>>>>> Stashed changes
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-<<<<<<< Updated upstream
-        app:layout_constraintGuide_percent="0.7125" />
-=======
         app:layout_constraintGuide_begin="245dp" />
->>>>>>> Stashed changes
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-<<<<<<< Updated upstream
-        app:layout_constraintGuide_percent="0.0075" />
-=======
         app:layout_constraintGuide_begin="305dp" />
->>>>>>> Stashed changes
 
     <Button
         android:id="@+id/btnaddNewCrypto"

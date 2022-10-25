@@ -31,4 +31,5 @@
     <string name="usetext">UTILIZZARE</string>
     <string name="AddNewCrypto">Nuova criptovaluta</string>
     <string name="conectionlost">CONNESSIONE PERSA</string>
+    <string name="notdefined_default">NON DEFINITO</string>
 </resources>

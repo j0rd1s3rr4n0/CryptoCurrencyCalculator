@@ -31,4 +31,5 @@
     <string name="cryptodoesnotexist">LA DEVISE DEMANDÉE N\'EXISTE PAS</string>
     <string name="noconnection">Erreur - Vous n\'avez pas de connexion Internet</string>
     <string name="conectionlost">CONNEXION PERDUE</string>
+    <string name="notdefined_default">INDÉFINI</string>
 </resources>

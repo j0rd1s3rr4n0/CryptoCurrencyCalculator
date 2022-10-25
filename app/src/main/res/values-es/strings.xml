@@ -31,4 +31,5 @@
     <string name="cryptodoesnotexist">LA MONEDA SOLICITADA NO EXISTE</string>
     <string name="usetext">USAR</string>
     <string name="AddNewCrypto">Nueva CriptoMoneda</string>
+    <string name="notdefined_default">Indefinido</string>
 </resources>
