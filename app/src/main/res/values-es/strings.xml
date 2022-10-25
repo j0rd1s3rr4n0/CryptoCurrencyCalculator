@@ -26,4 +26,7 @@
     <string name="error_ammount_higher">Valor Demasiado Grande</string>
     <string name="error_ammount_smaller">Valor demasiado pequeño</string>
     <string name="value_choosed">"Valor Seleccionado: "</string>
+    <string name="cryptodoesnotexist">LA MONEDA SOLICITADA NO EXISTE EXISTE</string>
+    <string name="noconnection">Error - No tiene conexión a Internet</string>
+    <string name="conectionlost">CONEXIÓN PERDIDA</string>
 </resources>

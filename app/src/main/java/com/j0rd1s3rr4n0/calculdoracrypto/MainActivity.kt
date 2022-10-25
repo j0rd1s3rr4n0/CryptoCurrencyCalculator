@@ -12,7 +12,15 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import okhttp3.*
 import java.io.IOException
-
+//TODO QUEDAN LAS SIQUIENTES COSAS
+/*
+* 1. Reemplazar comas por puntos al usuario
+*
+* 2. Añadir monedas
+*
+*
+*
+*/
 class MainActivity : AppCompatActivity() {
     var value_api_data : Double = 0.0
     lateinit var txtView  : TextView
@@ -77,6 +85,12 @@ class MainActivity : AppCompatActivity() {
         outState.putString("cointwo_data", val_rescoin_data)
     }
 
+    fun replaceDotToComa(texto:String): String {
+        return texto.replace(".", ",")
+    }
+    fun replaceComaToDot(texto:String): String {
+        return texto.replace(",", ".")
+    }
 
 
     fun alertSnackBar(texto:String,color:String?){
@@ -115,7 +129,7 @@ class MainActivity : AppCompatActivity() {
         val client = OkHttpClient()
         val apiUrl = API_URL
         val c1 = coinOne.text
-        val c2 = coinTwo.text // USD,GBP,EUR
+        val c2 = "BTOA" // USD,GBP,EUR
         val amount = txtView.text
         val_txt_data = txtView.text.toString()
         val postData = arrayOf("$c1","$amount","$c2")
@@ -137,14 +151,21 @@ class MainActivity : AppCompatActivity() {
                 client.newCall(request).enqueue(object: Callback {
 
                     override fun onFailure(call: Call, e: IOException) {
-                        error("Failed"+ e.printStackTrace().toString())
+                         alertSnackBar(resources.getString(R.string.noconnection),"red")
+                        txtRes.text = resources.getString(R.string.conectionlost)
                     }
                     override fun onResponse(call: Call, response: Response) {
                         val body = response.body()?.string()
-                        println(body)
-                        if("\"erro_code\":400" in body.toString()){
-                            alertSnackBarTop(resources.getString(R.string.error_ammount_higher),"red")
-                            txtRes.text = "0"
+                        println("BODY: "+body)
+                        if("\"error_code\":400" in body.toString()) {
+                            if ("\"amount\"" in body.toString()) {
+                                alertSnackBarTop(resources.getString(R.string.error_ammount_higher), "red")
+                                txtRes.text = "0"
+                            } else if("Invalid value for \\\"convert\\\":" in body.toString()){
+                                alertSnackBarTop(resources.getString(R.string.cryptodoesnotexist), "red")
+                            }
+                        }else if("\"price\":null" in body.toString()){
+                            txtRes.text = resources.getString(R.string.cryptodoesnotexist)
                         }else{
                             var parsed_price = body.toString().split("{")[5].split(",")[0].split(":")[1]
                             println("PRECIO: $parsed_price")
@@ -214,7 +235,7 @@ class MainActivity : AppCompatActivity() {
             saveStats()
         }catch(e:java.lang.Exception){
             alertSnackBarTop(resources.getString(R.string.error_request),"red")
-            txtRes.text = "ERROR REQUEST" //TODO PONER ESTO CON SUS CORRESPONDIENTE MSG
+            txtRes.text = resources.getString(R.string.error_request)
         }
     }
 

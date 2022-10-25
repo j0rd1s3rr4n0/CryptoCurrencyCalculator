@@ -26,4 +26,7 @@
     <string name="error_ammount_higher">Valeur trop importante</string>
     <string name="error_ammount_smaller">Valeur trop faible</string>
     <string name="value_choosed">"Valeur sélectionnée : "</string>
+    <string name="noconnection">Erreur - Vous n\'avez pas de connexion Internet</string>
+    <string name="conectionlost">CONNEXION PERDUE</string>
+    <string name="cryptodoesnotexist">LA DEVISE DEMANDÉE N\'EXISTE PAS</string>
 </resources>
