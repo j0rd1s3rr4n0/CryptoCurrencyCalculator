@@ -34,6 +34,10 @@ class MainActivity : AppCompatActivity() {
     val API_KEY_COINMARKETCAP :String = "bc482525-aea3-451f-98b4-7192dd7c2056"
     val API_URL : String = "https://pro-api.coinmarketcap.com/v2/tools/price-conversion"
 
+    var val_txt_data : String = ""
+    var val_res_data : String = ""
+    var val_txtcoin_data : String = ""
+    var val_rescoin_data : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,10 +55,29 @@ class MainActivity : AppCompatActivity() {
         btnNine  = findViewById(R.id.btn_nine)
         btnZero  = findViewById(R.id.btn_zero)
         btnComa  = findViewById(R.id.btn_coma)
-        coinOne  = findViewById(R.id.tv_coin_2)
-        coinTwo  = findViewById(R.id.tv_coin_1)
-
+        coinOne  = findViewById(R.id.tv_coin_1)
+        coinTwo  = findViewById(R.id.tv_coin_2)
+        if(savedInstanceState!=null){
+            txtView.text = savedInstanceState?.getString("txtview_data").toString()
+            txtRes.text = savedInstanceState?.getString("txtres_data").toString()
+            coinOne.text = savedInstanceState?.getString("coinone_data").toString()
+            coinTwo.text = savedInstanceState?.getString("cointwo_data").toString()
+        }
+        val_txt_data = txtView.text.toString()
+        val_res_data = txtRes.text.toString()
+        val_txtcoin_data = coinOne.text.toString()
+        val_rescoin_data = coinTwo.text.toString()
     }
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        outState.putString("txtview_data", val_txt_data)
+        outState.putString("txtres_data", val_res_data)
+        outState.putString("coinone_data", val_txtcoin_data)
+        outState.putString("cointwo_data", val_rescoin_data)
+    }
+
+
 
     fun alertSnackBar(texto:String,color:String?){
         val parentLayout = findViewById<View>(android.R.id.content)
@@ -94,7 +117,7 @@ class MainActivity : AppCompatActivity() {
         val c1 = coinOne.text
         val c2 = coinTwo.text // USD,GBP,EUR
         val amount = txtView.text
-
+        val_txt_data = txtView.text.toString()
         val postData = arrayOf("$c1","$amount","$c2")
         val postDataTitle = arrayOf("symbol","amount","convert")
         if(Math.round(txtView.text.toString().toDouble()).toString() == "0" || txtView.text.isEmpty()){
@@ -148,6 +171,8 @@ class MainActivity : AppCompatActivity() {
                                 }
                             }
                             txtRes.text = value_api_data_parsed
+                            val_res_data = value_api_data_parsed
+                            saveStats()
                             //          alertSnackBarTop("PETICIÓN COMPLETADA")
                         }
                     }
@@ -186,11 +211,14 @@ class MainActivity : AppCompatActivity() {
         }
         try{
             getCoins()
+            saveStats()
         }catch(e:java.lang.Exception){
             alertSnackBarTop(resources.getString(R.string.error_request),"red")
             txtRes.text = "ERROR REQUEST" //TODO PONER ESTO CON SUS CORRESPONDIENTE MSG
         }
     }
+
+
 
 
 
@@ -218,7 +246,9 @@ class MainActivity : AppCompatActivity() {
 
             }
             try{
+
                 updateConversion()
+                saveStats()
             }catch (e:Exception){
                 alertSnackBarTop(resources.getString(R.string.error_request),"red")
             }
@@ -237,14 +267,18 @@ class MainActivity : AppCompatActivity() {
         var texto = this.txtView.text.toString()
         if("." in texto){
             if(texto[texto.length-1].toString() == "."){
+                saveStats()
                 return texto.length-1
             }else{
                 var tv_without_comma = texto.split('.')[1]//.replace(",","")
+                saveStats()
                 return tv_without_comma.length
             }
 
         }else{
+            saveStats()
             return texto.length
+
         }
         //println(tv_without_comma+" , "+tv_without_comma.length.toString())
 
@@ -256,6 +290,7 @@ class MainActivity : AppCompatActivity() {
     fun cleanAll(view: View){
         txtView.text = "0"
         txtRes.text = "0"
+        saveStats()
     }
 
 
@@ -270,11 +305,15 @@ class MainActivity : AppCompatActivity() {
             }else {
                 if(txtView.text != ""){
                     txtView.append(".")
+                    saveStats()
                 }else{
                     txtView.append("0.")
+                    saveStats()
+
                 }
             }
         }
+        saveStats()
     }
 
 
@@ -284,25 +323,24 @@ class MainActivity : AppCompatActivity() {
         txtView.text = str
         if(calcularLongitudTextView() < 1){
             txtView.setText("0")
+            saveStats()
+
         }
         if(txtView.text.toString()[txtView.text.toString().length-1].toString() == "."){
             //TODO NO CONVERTIR
         }else{
             try{
                 updateConversion()
+                saveStats()
             }catch(e:Exception){
                 alertSnackBarTop(resources.getString(R.string.error_request),"red")
             }
         }
-
+        val_txt_data = txtView.text.toString()
+        val_res_data = txtRes.text.toString()
 
     }
 
-
-
-    fun changeConversion(){
-        updateConversion()
-    }
 
 
 
@@ -320,8 +358,10 @@ class MainActivity : AppCompatActivity() {
         var numberTwoCrypto = txtRes.text
         txtView.text = numberTwoCrypto
         txtRes.text = numberOneCrypto
+        saveStats()
         try{
             updateConversion()
+            saveStats()
         }catch(e:Exception){
             alertSnackBarTop(resources.getString(R.string.error_request),"red")
         }
@@ -346,9 +386,17 @@ class MainActivity : AppCompatActivity() {
         val activeOne:TextView = coinOne
         val activeTwo:TextView = coinTwo
         when(forWhoisChoosing){
-            1 -> activeOne.text = coinOne.text
-            else -> activeTwo.text = coinTwo.text
+            1 -> {
+                activeOne.text = coinOne.text
+                val_txtcoin_data = coinOne.text.toString()
+            }
+            else -> {
+                activeTwo.text = coinTwo.text
+                val_txtcoin_data = coinTwo.text.toString()
+
+            }
         }
+        saveStats()
 
         btn_btc_dialog.setOnClickListener{
             buttonclicked = btn_btc_dialog.text.toString()
@@ -394,16 +442,24 @@ class MainActivity : AppCompatActivity() {
             println("Cancelar")
             dialog.dismiss()
         }
-
+        saveStats()
         return dialog
     }
 
-    fun dialogChooseone() {
+    fun dialogChooseone(view:View) {
         createFormDialog(1).show()
 
     }
-    fun dialogChooseTwo() {
+    fun dialogChooseTwo(view:View) {
         createFormDialog(2).show()
+    }
+
+
+    fun saveStats(){
+        val_txt_data = txtView.text.toString()
+        val_res_data = txtRes.text.toString()
+        val_txtcoin_data = coinOne.text.toString()
+        val_rescoin_data = coinTwo.text.toString()
     }
 
 

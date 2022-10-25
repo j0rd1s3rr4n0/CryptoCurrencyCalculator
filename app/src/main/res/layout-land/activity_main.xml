@@ -22,7 +22,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
         app:layout_constraintStart_toStartOf="@+id/guideline19"
         app:layout_constraintTop_toTopOf="@+id/guideline27"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints,DuplicateSpeakableTextCheck" />
 
     <Button
         android:id="@+id/btn_one"
@@ -281,11 +281,11 @@
         android:text="@string/zero"
         android:textAlignment="gravity"
         android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline25"
         app:layout_constraintEnd_toStartOf="@+id/btn_clear_all"
         app:layout_constraintHorizontal_bias="0.922"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline27"
+        app:layout_constraintTop_toTopOf="@+id/guideline21"
         app:layout_constraintVertical_bias="0.757"
         tools:ignore="MissingConstraints" />
 
@@ -305,16 +305,16 @@
         android:text="@string/zero"
         android:textAlignment="gravity"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline25"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline19"
         app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline21"
+        app:layout_constraintTop_toTopOf="@+id/guideline27"
         app:layout_constraintVertical_bias="0.274"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tv_coin_1"
+        android:id="@+id/tv_coin_2"
         style="@style/alonetrext"
         android:layout_width="113dp"
         android:layout_height="84dp"
@@ -331,7 +331,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tv_coin_2"
+        android:id="@+id/tv_coin_1"
         style="@style/alonetrext"
         android:layout_width="113dp"
         android:layout_height="0dp"
@@ -425,21 +425,25 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="-10dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline21"
-        app:layout_constraintStart_toEndOf="@+id/tv_coin_1"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_coin_2"
+        app:layout_constraintTop_toTopOf="@+id/tv_coin_2"
         app:layout_constraintVertical_bias="0.8"
-        app:srcCompat="@drawable/ic_baseline_signal_cellular_4_bar_24" />
+        app:srcCompat="@drawable/ic_baseline_signal_cellular_4_bar_24"
+        android:contentDescription="@string/choosecoin" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/tv_one"
-        app:layout_constraintStart_toEndOf="@+id/tv_coin_2"
+        android:layout_marginStart="-10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline27"
+        app:layout_constraintStart_toEndOf="@+id/tv_coin_1"
         app:layout_constraintTop_toTopOf="@+id/guideline26"
-        app:layout_constraintVertical_bias="0.8"
-        app:srcCompat="@drawable/ic_baseline_signal_cellular_4_bar_24" />
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_baseline_signal_cellular_4_bar_24"
+        android:contentDescription="@string/choosecoin" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

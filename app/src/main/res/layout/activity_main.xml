@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintStart_toStartOf="@+id/guideline28"
-        app:srcCompat="@drawable/ic_baseline_signal_cellular_4_bar_24" />
+        app:srcCompat="@drawable/ic_baseline_signal_cellular_4_bar_24"
+        android:contentDescription="@string/choosecoin" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -21,7 +22,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline28"
-        app:srcCompat="@drawable/ic_baseline_signal_cellular_4_bar_24" />
+        app:srcCompat="@drawable/ic_baseline_signal_cellular_4_bar_24"
+        android:contentDescription="@string/choosecoin" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/separacio_keyboard"
@@ -154,7 +156,7 @@
         android:onClick="addNumber"
         android:text="@string/three"
         android:textAlignment="center"
-        android:textSize="35dp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_middle"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintHorizontal_bias="1.0"
@@ -193,7 +195,7 @@
         android:onClick="addNumber"
         android:text="@string/two"
         android:textAlignment="center"
-        android:textSize="35dp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_middle"
         app:layout_constraintEnd_toStartOf="@+id/separacio_keyboard_right"
         app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_center"
@@ -210,7 +212,7 @@
         android:onClick="addNumber"
         android:text="@string/four"
         android:textAlignment="center"
-        android:textSize="35dp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_bottom"
         app:layout_constraintEnd_toStartOf="@+id/separacio_keyboard_center"
         app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_left"
@@ -254,12 +256,13 @@
         android:insetBottom="6dp"
         android:onClick="addNumber"
         android:text="@string/zero"
-        android:textSize="35dp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_footer2"
         app:layout_constraintEnd_toStartOf="@+id/separacio_keyboard_right"
         app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_left"
         app:layout_constraintTop_toTopOf="@+id/separacio_keyboard_footer"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <Button
         android:id="@+id/btn_clear_all"
@@ -302,7 +305,7 @@
         android:onClick="addNumber"
         android:text="@string/five"
         android:textAlignment="center"
-        android:textSize="35dp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_bottom"
         app:layout_constraintEnd_toStartOf="@+id/btn_six"
         app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_center"
@@ -319,7 +322,7 @@
         android:onClick="addNumber"
         android:text="@string/six"
         android:textAlignment="center"
-        android:textSize="35dp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_bottom"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintHorizontal_bias="0.0"
@@ -338,7 +341,7 @@
         android:onClick="addNumber"
         android:text="@string/nine"
         android:textAlignment="center"
-        android:textSize="35dp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_footer"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintHorizontal_bias="1.0"
@@ -357,7 +360,7 @@
         android:onClick="insertComa"
         android:text="@string/coma"
         android:textAlignment="center"
-        android:textSize="35dp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_footer2"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_right"
@@ -375,7 +378,7 @@
         android:text="@string/eight"
         android:textAlignment="center"
 
-        android:textSize="35dp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_footer"
         app:layout_constraintEnd_toStartOf="@+id/separacio_keyboard_right"
         app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_center"
@@ -392,7 +395,7 @@
         android:onClick="addNumber"
         android:text="@string/seven"
         android:textAlignment="center"
-        android:textSize="35dp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/separacio_keyboard_footer"
         app:layout_constraintEnd_toStartOf="@+id/separacio_keyboard_center"
         app:layout_constraintStart_toStartOf="@+id/separacio_keyboard_left"
@@ -447,7 +450,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/tv_coin_1"
+        android:id="@+id/tv_coin_2"
         style="@style/alonetrext"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -463,7 +466,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/tv_coin_2"
+        android:id="@+id/tv_coin_1"
         style="@style/alonetrext"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -488,6 +491,7 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:background="@drawable/boton_redondo"
+        android:contentDescription="@string/choosecoin"
         android:onClick="switchConversion"
         android:padding="10dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
@@ -497,7 +501,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline3"
         app:layout_constraintVertical_bias="0.735"
         app:srcCompat="@drawable/ic_baseline_wifi_protected_setup_24"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline28"
