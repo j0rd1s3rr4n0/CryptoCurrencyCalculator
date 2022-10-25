@@ -36,7 +36,7 @@
         android:insetBottom="6dp"
         android:text="@string/cancel"
         app:layout_constraintBottom_toTopOf="@+id/guideline16"
-        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintEnd_toStartOf="@+id/guideline15"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline8"
         app:layout_constraintTop_toTopOf="@+id/guideline13"
@@ -187,20 +187,6 @@
         app:layout_constraintGuide_percent="0.48" />
 
     <Button
-        android:id="@+id/btnCancelar"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:insetLeft="6dp"
-        android:insetTop="6dp"
-        android:insetRight="6dp"
-        android:insetBottom="6dp"
-        android:text="@string/cancel"
-        app:layout_constraintBottom_toTopOf="@+id/guideline20"
-        app:layout_constraintEnd_toStartOf="@+id/guideline15"
-        app:layout_constraintStart_toStartOf="@+id/guideline8"
-        app:layout_constraintTop_toTopOf="@+id/guideline13" />
-
-    <Button
         android:id="@+id/btnOk"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -211,7 +197,7 @@
         android:insetRight="6dp"
         android:insetBottom="6dp"
         android:text="@string/apply"
-        app:layout_constraintBottom_toTopOf="@+id/guideline20"
+        app:layout_constraintBottom_toTopOf="@+id/guideline16"
         app:layout_constraintEnd_toStartOf="@+id/guideline9"
         app:layout_constraintStart_toStartOf="@+id/guideline10"
         app:layout_constraintTop_toTopOf="@+id/guideline13" />
