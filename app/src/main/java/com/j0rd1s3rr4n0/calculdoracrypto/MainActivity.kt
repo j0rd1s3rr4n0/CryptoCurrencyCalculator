@@ -1,10 +1,12 @@
 package com.j0rd1s3rr4n0.calculdoracrypto
 
 import android.os.Bundle
+import android.text.InputType
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -12,7 +14,21 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import okhttp3.*
 import java.io.IOException
+<<<<<<< Updated upstream
 
+=======
+//TODO QUEDAN LAS SIQUIENTES COSAS
+/*
+* 1. Reemplazar comas por puntos al usuario
+*
+* 2. Añadir monedas
+*
+* 3. Añadir Boton de Info
+*    - Añadir Código de github
+*    - Añadir Instrucciones de la App
+*    - Añadir Listado de todas las criptomonedas
+*/
+>>>>>>> Stashed changes
 class MainActivity : AppCompatActivity() {
     var value_api_data : Double = 0.0
     lateinit var txtView  : TextView
@@ -67,6 +83,7 @@ class MainActivity : AppCompatActivity() {
         val_res_data = txtRes.text.toString()
         val_txtcoin_data = coinOne.text.toString()
         val_rescoin_data = coinTwo.text.toString()
+        AddNewCrypto(1)
     }
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
@@ -132,7 +149,6 @@ class MainActivity : AppCompatActivity() {
                     .addHeader(postDataTitle[0],postData[0])
                     .addHeader(postDataTitle[2],postData[2])
                     .build()
-                //    alertSnackBarTop("PETICIÓN MANDADA")
 
                 client.newCall(request).enqueue(object: Callback {
 
@@ -141,11 +157,36 @@ class MainActivity : AppCompatActivity() {
                     }
                     override fun onResponse(call: Call, response: Response) {
                         val body = response.body()?.string()
+<<<<<<< Updated upstream
                         println(body)
                         if("\"erro_code\":400" in body.toString()){
                             alertSnackBarTop(resources.getString(R.string.error_ammount_higher),"red")
                             txtRes.text = "0"
+=======
+                        println("BODY: "+body)
+                        var b_response = body.toString()
+
+                        if(b_response.contains("\"error_code\":400")) {
+
+                            if (b_response.contains("\"amount\"")) {
+                                alertSnackBarTop(resources.getString(R.string.error_ammount_higher), "red")
+                                txtRes.text = "0"
+                            } else{
+                                if("Invalid value for \\\"convert\\\":" in body.toString()) {
+                                    alertSnackBarTop(
+                                        resources.getString(R.string.cryptodoesnotexist),
+                                        "red"
+                                    )
+                                }
+                            }
+
+                        }else if("\"price\":null" in body.toString()){
+
+                            txtRes.text = resources.getString(R.string.cryptodoesnotexist)
+
+>>>>>>> Stashed changes
                         }else{
+
                             var parsed_price = body.toString().split("{")[5].split(",")[0].split(":")[1]
                             println("PRECIO: $parsed_price")
 
@@ -173,7 +214,6 @@ class MainActivity : AppCompatActivity() {
                             txtRes.text = value_api_data_parsed
                             val_res_data = value_api_data_parsed
                             saveStats()
-                            //          alertSnackBarTop("PETICIÓN COMPLETADA")
                         }
                     }
                 })
@@ -185,7 +225,24 @@ class MainActivity : AppCompatActivity() {
 
 
 
+    fun AddNewCrypto(buttonSelected: Int) {
+        var valorprefav = ""
 
+        var edtNewCoin: EditText = EditText(this)
+        edtNewCoin.inputType = InputType.TYPE_CLASS_TEXT //Cambiar el type del EditText a Number
+        MaterialAlertDialogBuilder(this)
+            .setTitle("ESCRIBA EL CODIGO DE LA CRIPTOMONEDA QUE DESEA AÑADIR")
+            .setCancelable(true)
+            .setMessage("Ejemplo:\nBitCoin → BTC\nBinanceCoin → BNB")
+            .setView(edtNewCoin)
+            .setNegativeButton(resources.getString(R.string.cancel),null)
+            .setPositiveButton(resources.getString(R.string.usetext)) { dialog, which ->
+                var valorfinal:String = edtNewCoin.text.toString().toUpperCase()
+                alertSnackBar(resources.getString(R.string.value_choosed)+valorfinal,"blue")
+
+            }
+            .show()
+    }
 
     fun updateConversion() {
         // Recover Valor Numerico   de 1ª Moneda
@@ -378,6 +435,7 @@ class MainActivity : AppCompatActivity() {
         val btn_ltc_dialog:Button = v.findViewById(R.id.ltccoin)
         val btn_ada_dialog:Button = v.findViewById(R.id.adacoin)
         val btn_local_dialog:Button = v.findViewById(R.id.locaicoin)
+        val btn_new_crypto:Button = v.findViewById(R.id.btnaddNewCrypto)
         var buttonclicked: String? = ""
 
         var builder = MaterialAlertDialogBuilder(this)
@@ -409,6 +467,9 @@ class MainActivity : AppCompatActivity() {
         }
         btn_ltc_dialog.setOnClickListener {
             buttonclicked = btn_ltc_dialog.text.toString()
+        }
+        btn_new_crypto.setOnClickListener {
+            buttonclicked = AddNewCrypto(forWhoisChoosing).toString()
         }
 
 
