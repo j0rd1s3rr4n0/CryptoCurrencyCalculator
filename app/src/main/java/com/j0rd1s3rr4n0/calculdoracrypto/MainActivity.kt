@@ -1,10 +1,13 @@
 package com.j0rd1s3rr4n0.calculdoracrypto
 
+import android.graphics.Color
 import android.os.Bundle
+import android.text.InputType
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -39,6 +42,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var coinOne  : TextView
     lateinit var coinTwo  : TextView
 
+    var valnewcrypto:String = ""
     val API_KEY_COINMARKETCAP :String = "bc482525-aea3-451f-98b4-7192dd7c2056"
     val API_URL : String = "https://pro-api.coinmarketcap.com/v2/tools/price-conversion"
 
@@ -110,18 +114,50 @@ class MainActivity : AppCompatActivity() {
     fun alertSnackBarTop(texto:String,color:String?){
         val parentLayout = findViewById<View>(android.R.id.content)
         val snack = Snackbar.make(parentLayout, "$texto", Snackbar.LENGTH_SHORT)
-
+        val textView = snack.view as TextView
         // Forzamos el TOP
         val viewSnack = snack.view
         val params = viewSnack.layoutParams as FrameLayout.LayoutParams
         params.gravity = Gravity.TOP
+
         viewSnack.layoutParams = params
         when(color){
-            "red" -> viewSnack.setBackgroundColor(getColor(R.color.red))
-            "blue" -> viewSnack.setBackgroundColor(getColor(R.color.azulado))
-            else -> {viewSnack.setBackgroundColor(getColor(R.color.amarilaldo))}
+            "red" -> {
+                viewSnack.setBackgroundColor(getColor(R.color.red))
+                textView.setTextColor(Color.WHITE)
+            }
+            "blue" -> {
+                viewSnack.setBackgroundColor(getColor(R.color.azulado))
+                textView.setTextColor(Color.WHITE)
+            }
+            else -> {
+                viewSnack.setBackgroundColor(getColor(R.color.amarilaldo))
+                textView.setTextColor(Color.BLACK)
+            }
         }
         snack.show()
+    }
+
+    fun AddNewCrypto(buttonSelected: Int) {
+
+        var edtNewCoin: EditText = EditText(this)
+        edtNewCoin.inputType = InputType.TYPE_CLASS_TEXT //Cambiar el type del EditText a Number
+        edtNewCoin.setText("")
+        do{
+            MaterialAlertDialogBuilder(this)
+                .setTitle(resources.getString(R.string.write_new_crypto))
+                .setCancelable(true)
+                .setMessage(resources.getString(R.string.example)+":\nBitCoin → BTC\nBinanceCoin → BNB")
+                .setView(edtNewCoin)
+                .setNegativeButton(resources.getString(R.string.cancel)) { dialog, which ->
+                    valnewcrypto = " "
+                }
+                .setPositiveButton(resources.getString(R.string.usetext)) { dialog, which ->
+                        valnewcrypto = edtNewCoin.text.toString()
+                }
+                .show()
+        }while(edtNewCoin.text.toString()!=""|| valnewcrypto == edtNewCoin.text.toString())
+
     }
 
     fun getCoins(){
@@ -390,6 +426,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun betrayed(forWhoisChoosing:Int) {
+        val oldvalue = valnewcrypto
+        return AddNewCrypto(forWhoisChoosing)
+    }
+
+
 
     fun createFormDialog(forWhoisChoosing:Int): androidx.appcompat.app.AlertDialog {
 
@@ -401,6 +443,7 @@ class MainActivity : AppCompatActivity() {
         val btn_ltc_dialog:Button = v.findViewById(R.id.ltccoin)
         val btn_ada_dialog:Button = v.findViewById(R.id.adacoin)
         val btn_local_dialog:Button = v.findViewById(R.id.locaicoin)
+        val btn_new_crypto:Button = v.findViewById(R.id.btnaddNewCrypto)
         var buttonclicked: String? = ""
 
         var builder = MaterialAlertDialogBuilder(this)
@@ -432,6 +475,9 @@ class MainActivity : AppCompatActivity() {
         }
         btn_ltc_dialog.setOnClickListener {
             buttonclicked = btn_ltc_dialog.text.toString()
+        }
+        btn_new_crypto.setOnClickListener {
+            alertSnackBarTop(resources.getString(R.string.feature_is_not_yet),"default")
         }
 
 

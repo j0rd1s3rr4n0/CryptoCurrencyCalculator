@@ -32,4 +32,7 @@
     <string name="errorocurred">Error Undefined</string>
     <string name="usetext">USE</string>
     <string name="notdefined_default">Undefined</string>
+    <string name="write_new_crypto">ESCRIBA EL CODIGO DE LA CRIPTOMONEDA QUE DESEA AÑADIR</string>
+    <string name="example">Example</string>
+    <string name="feature_is_not_yet">La Funcion Solicitada No esta Disponible</string>
 </resources>

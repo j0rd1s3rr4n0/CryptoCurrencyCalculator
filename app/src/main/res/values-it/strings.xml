@@ -33,4 +33,6 @@
     <string name="AddNewCrypto">Nuova criptovaluta</string>
     <string name="usetext">USE</string>
     <string name="notdefined_default">Undefined</string>
+    <string name="write_new_crypto">ESCRIBA EL CODIGO DE LA CRIPTOMONEDA QUE DESEA AÑADIR</string>
+    <string name="example">Example</string>
 </resources>
