@@ -91,28 +91,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="163dp" />
+        app:layout_constraintGuide_begin="140dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="265dp" />
+        app:layout_constraintGuide_begin="227dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="279dp" />
+        app:layout_constraintGuide_begin="240dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="337dp" />
+        app:layout_constraintGuide_begin="300dp" />
 
     <Button
         android:id="@+id/adacoin"
@@ -195,6 +195,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="374dp" />
+        app:layout_constraintGuide_begin="320dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
