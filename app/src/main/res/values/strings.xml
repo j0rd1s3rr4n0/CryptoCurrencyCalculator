@@ -30,4 +30,6 @@
     <string name="cryptodoesnotexist">THE REQUESTED CURRENCY DOES NOT EXIST</string>
     <string name="AddNewCrypto">New CryptoCurrency</string>
     <string name="errorocurred">Error Undefined</string>
+    <string name="usetext">USE</string>
+    <string name="notdefined_default">Undefined</string>
 </resources>

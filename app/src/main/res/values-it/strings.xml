@@ -31,4 +31,6 @@
     <string name="cryptodoesnotexist">LA VALUTA RICHIESTA NON ESISTE</string>
     <string name="errorocurred">Errore non definito</string>
     <string name="AddNewCrypto">Nuova criptovaluta</string>
+    <string name="usetext">USE</string>
+    <string name="notdefined_default">Undefined</string>
 </resources>

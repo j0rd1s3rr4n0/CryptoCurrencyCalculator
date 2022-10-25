@@ -31,4 +31,6 @@
     <string name="conectionlost">CONEXIÓN PERDIDA</string>
     <string name="errorocurred">Error Indefinido</string>
     <string name="AddNewCrypto">Nueva CryptoMoneda</string>
+    <string name="usetext">USE</string>
+    <string name="notdefined_default">Undefined</string>
 </resources>

@@ -31,4 +31,6 @@
     <string name="cryptodoesnotexist">LA DEVISE DEMANDÉE N\'EXISTE PAS</string>
     <string name="errorocurred">Error Indéfini</string>
     <string name="AddNewCrypto">Nouvelle CryptoMonnaie</string>
+    <string name="usetext">USE</string>
+    <string name="notdefined_default">Undefined</string>
 </resources>
