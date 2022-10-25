@@ -450,7 +450,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/tv_coin_1"
+        android:id="@+id/tv_coin_2"
         style="@style/alonetrext"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -466,7 +466,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/tv_coin_2"
+        android:id="@+id/tv_coin_1"
         style="@style/alonetrext"
         android:layout_width="0dp"
         android:layout_height="0dp"

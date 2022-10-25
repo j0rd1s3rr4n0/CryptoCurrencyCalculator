@@ -314,7 +314,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tv_coin_1"
+        android:id="@+id/tv_coin_2"
         style="@style/alonetrext"
         android:layout_width="113dp"
         android:layout_height="84dp"
@@ -331,7 +331,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tv_coin_2"
+        android:id="@+id/tv_coin_1"
         style="@style/alonetrext"
         android:layout_width="113dp"
         android:layout_height="0dp"
@@ -427,8 +427,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="-10dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline21"
-        app:layout_constraintStart_toEndOf="@+id/tv_coin_1"
-        app:layout_constraintTop_toTopOf="@+id/tv_coin_1"
+        app:layout_constraintStart_toEndOf="@+id/tv_coin_2"
+        app:layout_constraintTop_toTopOf="@+id/tv_coin_2"
         app:layout_constraintVertical_bias="0.8"
         app:srcCompat="@drawable/ic_baseline_signal_cellular_4_bar_24"
         android:contentDescription="@string/choosecoin" />
@@ -439,7 +439,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="-10dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline27"
-        app:layout_constraintStart_toEndOf="@+id/tv_coin_2"
+        app:layout_constraintStart_toEndOf="@+id/tv_coin_1"
         app:layout_constraintTop_toTopOf="@+id/guideline26"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/ic_baseline_signal_cellular_4_bar_24"

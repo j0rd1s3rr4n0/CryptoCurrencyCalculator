@@ -55,13 +55,13 @@ class MainActivity : AppCompatActivity() {
         btnNine  = findViewById(R.id.btn_nine)
         btnZero  = findViewById(R.id.btn_zero)
         btnComa  = findViewById(R.id.btn_coma)
-        coinOne  = findViewById(R.id.tv_coin_2)
-        coinTwo  = findViewById(R.id.tv_coin_1)
+        coinOne  = findViewById(R.id.tv_coin_1)
+        coinTwo  = findViewById(R.id.tv_coin_2)
         if(savedInstanceState!=null){
             txtView.text = savedInstanceState?.getString("txtview_data").toString()
-            txtRes.text = savedInstanceState?.getString("txtres_data").toString()
-            coinOne.text = savedInstanceState?.getString("coinone_data").toString()
-            coinTwo.text = savedInstanceState?.getString("cointwo_data").toString()
+            txtRes.text = savedInstanceState?.getString("txtres_data").toString().toDouble().toString()
+            coinOne.text = savedInstanceState?.getString("cointwo_data").toString()
+            coinTwo.text = savedInstanceState?.getString("coinone_data").toString()
         }
         val_txt_data = txtView.text.toString()
         val_res_data = txtRes.text.toString()
