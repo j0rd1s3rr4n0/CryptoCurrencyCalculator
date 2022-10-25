@@ -4,7 +4,7 @@
     <string name="realtime">Prix en temps réel</string>
     <string name="clearall">Effacer les données</string>
     <string name="choosecoin">Choisissez une devise</string>
-    <string name="apply">APPLY</string>
+    <string name="apply">APPLIQUER</string>
     <string name="cancel">ANNULER</string>
     <string name="localcoin">EUR</string>
     <string name="ada">ADA</string>

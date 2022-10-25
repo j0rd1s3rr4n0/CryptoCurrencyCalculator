@@ -6,7 +6,7 @@
     <string name="choosecoin">Choose a Currency</string>
     <string name="apply">APPLY</string>
     <string name="cancel">CANCEL</string>
-    <string name="localcoin">EUR</string>
+    <string name="localcoin">USD</string>
     <string name="ada">ADA</string>
     <string name="btc">BTC</string>
     <string name="ltc">LTC</string>
