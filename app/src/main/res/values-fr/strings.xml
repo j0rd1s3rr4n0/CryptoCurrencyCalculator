@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Calculatrice Crypto</string>
+    <string name="app_name">Calculateur de crypto-monnaies</string>
     <string name="realtime">Prix en temps réel</string>
     <string name="clearall">Effacer les données</string>
     <string name="choosecoin">Choisissez une devise</string>
-    <string name="apply">APPLIQUER</string>
+    <string name="apply">APPLY</string>
     <string name="cancel">ANNULER</string>
-    <string name="localcoin">EUR</string>
+    <string name="localcoin">USD</string>
     <string name="ada">ADA</string>
     <string name="btc">BTC</string>
     <string name="ltc">LTC</string>
@@ -22,17 +22,18 @@
     <string name="eight">8</string>
     <string name="seven">7</string>
     <string name="switch_to_description">Changer de monnaie</string>
-    <string name="error_request">Une erreur s\'est produite lors de la communication avec le serveur.</string>
-    <string name="error_ammount_higher">Valeur trop importante</string>
+    <string name="error_request">Une erreur s\'est produite lors du contact avec le serveur.</string>
+    <string name="error_ammount_higher">Valeur trop grande</string>
     <string name="error_ammount_smaller">Valeur trop faible</string>
-    <string name="value_choosed">"Valeur sélectionnée : "</string>
-    <string name="noconnection">Erreur - Vous n\'avez pas de connexion Internet</string>
-    <string name="conectionlost">CONNEXION PERDUE</string>
-    <string name="cryptodoesnotexist">LA DEVISE DEMANDÉE N\'EXISTE PAS</string>
-    <string name="errorocurred">Error Indéfini</string>
-    <string name="AddNewCrypto">Nouvelle CryptoMonnaie</string>
-    <string name="usetext">USE</string>
-    <string name="notdefined_default">Undefined</string>
-    <string name="write_new_crypto">ESCRIBA EL CODIGO DE LA CRIPTOMONEDA QUE DESEA AÑADIR</string>
-    <string name="example">Example</string>
+    <string name="value_choosed">Valeur sélectionnée : </string>
+    <string name="cryptodoesnotexist">Erreur - Pas de connexion Internet</string>
+    <string name="noconnection">LA CONNEXION A ÉTÉ PERDUE</string>
+    <string name="conectionlost">LA DEVISE DEMANDÉE N\'EXISTE PAS</string>
+    <string name="errorocurred">Nouvelle crypto-monnaie</string>
+    <string name="AddNewCrypto">Erreur indéfinie</string>
+    <string name="usetext">UTILISER</string>
+    <string name="notdefined_default">Indéfini</string>
+    <string name="write_new_crypto">TAPEZ LE CODE DE LA CRYPTO-MONNAIE QUE VOUS VOULEZ AJOUTER</string>
+    <string name="example">Exemple</string>
+    <string name="feature_is_not_yet">La fonction demandée n\'est pas disponible</string>
 </resources>

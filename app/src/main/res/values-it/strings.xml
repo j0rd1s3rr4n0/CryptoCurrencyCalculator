@@ -2,11 +2,11 @@
 <resources>
     <string name="app_name">Calcolatore di criptovalute</string>
     <string name="realtime">Prezzi in tempo reale</string>
-    <string name="clearall">Cancella dati</string>
+    <string name="clearall">Cancella i dati</string>
     <string name="choosecoin">Scegliere una valuta</string>
     <string name="apply">APPLICARE</string>
     <string name="cancel">ANNULLARE</string>
-    <string name="localcoin">EUR</string>
+    <string name="localcoin">USD</string>
     <string name="ada">ADA</string>
     <string name="btc">BTC</string>
     <string name="ltc">LTC</string>
@@ -21,18 +21,19 @@
     <string name="coma">,</string>
     <string name="eight">8</string>
     <string name="seven">7</string>
-    <string name="switch_to_description">Cambio valuta alternativo</string>
+    <string name="switch_to_description">Cambio valuta</string>
     <string name="error_request">Si è verificato un errore durante il contatto con il server.</string>
     <string name="error_ammount_higher">Valore troppo grande</string>
     <string name="error_ammount_smaller">Valore troppo piccolo</string>
-    <string name="value_choosed">"Valore selezionato: "</string>
-    <string name="noconnection">Errore - Non si dispone di una connessione a Internet</string>
-    <string name="conectionlost">CONNESSIONE PERSA</string>
-    <string name="cryptodoesnotexist">LA VALUTA RICHIESTA NON ESISTE</string>
-    <string name="errorocurred">Errore non definito</string>
-    <string name="AddNewCrypto">Nuova criptovaluta</string>
-    <string name="usetext">USE</string>
-    <string name="notdefined_default">Undefined</string>
-    <string name="write_new_crypto">ESCRIBA EL CODIGO DE LA CRIPTOMONEDA QUE DESEA AÑADIR</string>
-    <string name="example">Example</string>
+    <string name="value_choosed">Valore selezionato: </string>
+    <string name="cryptodoesnotexist">Errore: nessuna connessione a Internet</string>
+    <string name="noconnection">LA CONNESSIONE È STATA PERSA</string>
+    <string name="conectionlost">LA VALUTA RICHIESTA NON ESISTE</string>
+    <string name="errorocurred">Nuova criptovaluta</string>
+    <string name="AddNewCrypto">Errore non definito</string>
+    <string name="usetext">UTILIZZO</string>
+    <string name="notdefined_default">Non definito</string>
+    <string name="write_new_crypto">DIGITARE IL CODICE DELLA CRIPTOVALUTA CHE SI VUOLE AGGIUNGERE</string>
+    <string name="example">Esempio</string>
+    <string name="feature_is_not_yet">La funzione richiesta non è disponibile</string>
 </resources>
