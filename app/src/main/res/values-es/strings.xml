@@ -6,7 +6,7 @@
     <string name="choosecoin">Elija una moneda</string>
     <string name="apply">APLICAR</string>
     <string name="cancel">CANCELAR</string>
-    <string name="localcoin">USD</string>
+    <string name="localcoin">EUR</string>
     <string name="ada">ADA</string>
     <string name="btc">BTC</string>
     <string name="ltc">LTC</string>
@@ -29,8 +29,8 @@
     <string name="cryptodoesnotexist">Error-No hay conexión a Internet</string>
     <string name="noconnection">SE HA PERDIDO LA CONEXIÓN</string>
     <string name="conectionlost">LA MONEDA SOLICITADA NO EXISTE</string>
-    <string name="errorocurred">Nueva criptomoneda</string>
-    <string name="AddNewCrypto">Error Undefined</string>
+    <string name="errorocurred">Error indefinido</string>
+    <string name="AddNewCrypto">Nueva Criptomoneda</string>
     <string name="usetext">UTILIZAR</string>
     <string name="notdefined_default">Indefinido</string>
     <string name="write_new_crypto">ESCRIBA EL CÓDIGO DE LA CRIPTODIVISA QUE DESEA AÑADIR</string>

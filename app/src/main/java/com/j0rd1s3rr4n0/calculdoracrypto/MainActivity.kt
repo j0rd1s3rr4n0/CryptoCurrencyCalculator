@@ -117,7 +117,6 @@ class MainActivity : AppCompatActivity() {
     fun alertSnackBarTop(texto:String,color:String?){
         val parentLayout = findViewById<View>(android.R.id.content)
         val snack = Snackbar.make(parentLayout, "$texto", Snackbar.LENGTH_SHORT)
-        val textView = snack.view as TextView
         // Forzamos el TOP
         val viewSnack = snack.view
         val params = viewSnack.layoutParams as FrameLayout.LayoutParams
@@ -127,15 +126,16 @@ class MainActivity : AppCompatActivity() {
         when(color){
             "red" -> {
                 viewSnack.setBackgroundColor(getColor(R.color.red))
-                textView.setTextColor(Color.WHITE)
+                snack.setTextColor(Color.WHITE)
             }
             "blue" -> {
                 viewSnack.setBackgroundColor(getColor(R.color.azulado))
-                textView.setTextColor(Color.WHITE)
+                snack.setTextColor(Color.WHITE)
             }
             else -> {
                 viewSnack.setBackgroundColor(getColor(R.color.amarilaldo))
-                textView.setTextColor(Color.BLACK)
+                snack.setTextColor(Color.BLACK)
+
             }
         }
         snack.show()
@@ -162,7 +162,6 @@ class MainActivity : AppCompatActivity() {
         }while(edtNewCoin.text.toString()!=""|| valnewcrypto == edtNewCoin.text.toString())
 
     }
-
     fun getCoins(){
         //alertSnackBarTop("HACIENDO PETICIÓN")
         val client = OkHttpClient()
@@ -222,6 +221,7 @@ class MainActivity : AppCompatActivity() {
                             var value_api_data_parsed:String = value_api_data.toString()
 
                             if("E-" in value_api_data.toString()){
+                                print(value_api_data_parsed)
                                 alertSnackBarTop(resources.getString(R.string.error_ammount_smaller),"red")
                                 value_api_data_parsed = "0"
                             }else if("E" in value_api_data.toString()){
