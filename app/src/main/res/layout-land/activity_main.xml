@@ -316,7 +316,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tv_coin_2"
+        android:id="@+id/tv_coin_1"
         style="@style/alonetrext"
         android:layout_width="113dp"
         android:layout_height="84dp"
@@ -333,7 +333,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tv_coin_1"
+        android:id="@+id/tv_coin_2"
         style="@style/alonetrext"
         android:layout_width="113dp"
         android:layout_height="0dp"
